@@ -13,7 +13,7 @@
           "strict": true
         }
       },
-      "root": "",
+      "root": ".",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "zoorush"
+  "defaultProject": "zoorush",
+  "cli": {
+    "packageManager": "pnpm"
+  }
 }
