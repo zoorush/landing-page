@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { environment } from 'src/environments/environment';
 
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { AngularFireModule } from '@angular/fire/compat';
 
 import {
@@ -34,9 +33,7 @@ import {
     MatToolbarModule,
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule,
-    // provide modular style for AppCheck, see app.browser/server
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    AngularFireAnalyticsModule
   ],
   providers: [
     UserTrackingService,
