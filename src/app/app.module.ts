@@ -8,8 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { environment } from 'src/environments/environment';
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 
 @NgModule({
   declarations: [
@@ -23,9 +22,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     MatToolbarModule,
     MatIconModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
