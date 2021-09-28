@@ -8,7 +8,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { environment } from 'src/environments/environment';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { AngularFireModule } from '@angular/fire/compat';
+
+import {
+  AngularFireAnalyticsModule,
+  APP_NAME,
+  APP_VERSION,
+  DEBUG_MODE as ANALYTICS_DEBUG_MODE,
+  ScreenTrackingService,
+  UserTrackingService,
+  COLLECTION_ENABLED
+} from '@angular/fire/compat/analytics';
 
 @NgModule({
   declarations: [
@@ -21,7 +33,18 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    // provide modular style for AppCheck, see app.browser/server
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+  ],
+  providers: [
+    UserTrackingService,
+    ScreenTrackingService,
+    { provide: ANALYTICS_DEBUG_MODE, useValue: true },
+    { provide: COLLECTION_ENABLED, useValue: true },
+    { provide: APP_VERSION, useValue: '0.0.0' },
+    { provide: APP_NAME, useValue: 'Angular' },
   ],
   bootstrap: [AppComponent]
 })
