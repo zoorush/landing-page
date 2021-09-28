@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FirebaseApp } from '@angular/fire/app';
+import { FirebaseApp } from '@angular/fire/compat';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { FirebaseApp } from '@angular/fire/app';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(app: FirebaseApp) {
-    console.log(app);
+  constructor(public readonly firebaseApp: FirebaseApp) {
+    console.log(firebaseApp);
   }
 }
