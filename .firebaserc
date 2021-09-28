@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "zoorush-e8351"
+  },
+  "targets": {
+    "zoorush-e8351": {
+      "hosting": {
+        "zoorush": [
+          "zoorush-e8351"
+        ]
+      }
+    }
   }
 }
