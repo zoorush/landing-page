@@ -11,15 +11,15 @@ import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from '@angular/fire/compat';
 
-import {
-  AngularFireAnalyticsModule,
-  APP_NAME,
-  APP_VERSION,
-  DEBUG_MODE as ANALYTICS_DEBUG_MODE,
-  ScreenTrackingService,
-  UserTrackingService,
-  COLLECTION_ENABLED
-} from '@angular/fire/compat/analytics';
+// import {
+//   AngularFireAnalyticsModule,
+//   APP_NAME,
+//   APP_VERSION,
+//   DEBUG_MODE as ANALYTICS_DEBUG_MODE,
+//   ScreenTrackingService,
+//   UserTrackingService,
+//   COLLECTION_ENABLED
+// } from '@angular/fire/compat/analytics';
 
 @NgModule({
   declarations: [
@@ -33,15 +33,15 @@ import {
     MatToolbarModule,
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule
+    // AngularFireAnalyticsModule
   ],
   providers: [
-    UserTrackingService,
-    ScreenTrackingService,
-    { provide: ANALYTICS_DEBUG_MODE, useValue: true },
-    { provide: COLLECTION_ENABLED, useValue: true },
-    { provide: APP_VERSION, useValue: '0.0.0' },
-    { provide: APP_NAME, useValue: 'Angular' },
+    // UserTrackingService,
+    // ScreenTrackingService,
+    // { provide: ANALYTICS_DEBUG_MODE, useValue: true },
+    // { provide: COLLECTION_ENABLED, useValue: true },
+    // { provide: APP_VERSION, useValue: '0.0.0' },
+    // { provide: APP_NAME, useValue: 'Angular' },
   ],
   bootstrap: [AppComponent]
 })
