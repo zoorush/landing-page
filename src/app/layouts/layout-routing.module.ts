@@ -1,0 +1,32 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { FullComponent } from './full/full.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: FullComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+      },
+      {
+        path: '',
+        loadChildren:
+          () => import('../material-component/material.module').then(m => m.MaterialComponentsModule)
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('../home/home.module').then(m => m.HomeModule)
+      }
+    ]
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class LayoutRoutingModule { }

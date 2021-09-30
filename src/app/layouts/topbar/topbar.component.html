@@ -1,0 +1,12 @@
+<!-- ============================================================== -->
+<!-- topbar -->
+<!-- ============================================================== -->
+<ng-container *ngFor="let menuitem of menuItems.getMenuitem()">
+    <a mat-raised-button color="accent" [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'"
+        routerLinkActive="selected" class="m-r-10">
+        <mat-icon>{{ menuitem.icon }}</mat-icon>
+        <span>{{ menuitem.name }}</span>
+        <span fxFlex></span>
+        <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+    </a>
+</ng-container>

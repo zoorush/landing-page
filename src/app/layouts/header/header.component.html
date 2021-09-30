@@ -1,0 +1,12 @@
+<!-- ============================================================== -->
+<!-- Profile - style you can find in header.scss -->
+<!-- ============================================================== -->
+<a mat-mini-fab color="accent" class="m-r-10" *ngFor="let icon of socialIcons" [href]="icon.link">
+    <fa-icon [icon]="icon.icon"></fa-icon>
+</a>
+
+<button class="m-r-20" fxShow="false" fxShow.gt-xs mat-raised-button (click)="connectWallet()" color="accent">
+    Connect Wallet
+</button>
+
+<app-user *ngIf="validUser"></app-user>
