@@ -4,6 +4,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { DemoMaterialModule } from "../demo-material-module";
 import { SharedModule } from "../shared/shared.module";
+import { AppFooterComponent } from "./footer/footer.component";
 import { FullComponent } from "./full/full.component";
 import { AppHeaderComponent } from "./header/header.component";
 import { LayoutRoutingModule } from "./layout-routing.module";
@@ -22,12 +23,14 @@ import { TopbarComponent } from "./topbar/topbar.component";
     declarations: [
         FullComponent,
         AppHeaderComponent,
+        AppFooterComponent,
         AppSidebarComponent,
         TopbarComponent,
     ],
     exports: [
         FullComponent,
         AppHeaderComponent,
+        AppFooterComponent,
         AppSidebarComponent,
         TopbarComponent,
     ],

@@ -42,7 +42,7 @@ import { SharedModule } from './shared/shared.module';
     AngularFireAnalyticsModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   providers: [
     UserTrackingService,
