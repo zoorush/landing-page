@@ -5,13 +5,21 @@
 
     <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected"
         group="{{menuitem.state}}">
+        <ng-container [ngSwitch]="menuitem.type">
+            <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngSwitchCase="'link'">
+                <mat-icon>{{ menuitem.icon }}</mat-icon>
+                <span>{{ menuitem.name }}</span>
+                <span fxFlex></span>
+                <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+            </a>
 
-        <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'">
-            <mat-icon>{{ menuitem.icon }}</mat-icon>
-            <span>{{ menuitem.name }}</span>
-            <span fxFlex></span>
-            <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
-        </a>
+            <a class="" appAccordionToggle [href]="menuitem.state" *ngSwitchCase="'anchor'">
+                <mat-icon>{{ menuitem.icon }}</mat-icon>
+                <span>{{ menuitem.name }}</span>
+                <span fxFlex></span>
+                <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+            </a>
+        </ng-container>
 
     </mat-list-item>
 

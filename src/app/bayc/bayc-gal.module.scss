@@ -57,7 +57,7 @@
 }
 
 .black-line {
-  border-top: 1px solid #000;
+  border-top: 1px solid #020e04;
 }
 
 .white-line {
@@ -146,7 +146,7 @@
   padding: 0 0;
   padding-bottom: calc(10px / 2);
   height: auto;
-  background: #000;
+  background: #020e04;
   cursor: pointer;
   border: none;
   border-bottom: 1px solid $primary;
@@ -189,7 +189,7 @@
   position: relative;
   display: block;
   padding: 0 22px 0 22px;
-  color: #000;
+  color: #020e04;
   line-height: 60px;
   cursor: pointer;
   transition: all 0.25s;
@@ -248,7 +248,7 @@
   margin-top: 0%;
   width: 100%;
   border: none;
-  background-color: #000;
+  background-color: #020e04;
   color: $primary;
   padding: 0;
   padding-bottom: calc(10px / 2);

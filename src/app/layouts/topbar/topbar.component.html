@@ -2,10 +2,20 @@
 <!-- topbar -->
 <!-- ============================================================== -->
 <ng-container *ngFor="let menuitem of menuItems.getMenuitem()">
-    <a mat-button color="accent" [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'"
-        routerLinkActive="selected" class="m-r-10 btn-outline-primary">
-        <span>{{ menuitem.name }}</span>
-        <span fxFlex></span>
-        <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
-    </a>
+
+    <ng-container [ngSwitch]="menuitem.type">
+        <a mat-button color="accent" [routerLink]="['/', menuitem.state]" *ngSwitchCase="'link'"
+            routerLinkActive="selected" class="m-r-10 btn-outline-primary">
+            <span>{{ menuitem.name }}</span>
+            <span fxFlex></span>
+            <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+        </a>
+
+        <a mat-button color="accent" [href]="menuitem.state" *ngSwitchCase="'anchor'"
+            class="m-r-10 btn-outline-primary">
+            <span>{{ menuitem.name }}</span>
+            <span fxFlex></span>
+            <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+        </a>
+    </ng-container>
 </ng-container>

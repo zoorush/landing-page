@@ -26,6 +26,8 @@ File: scss
 
 .mat-drawer-container {
   background: $bodycolor;
+  background-image: url(/assets/images/background-color.png);
+  background-repeat: repeat;
 }
 
 html .page-wrapper {

@@ -87,7 +87,7 @@
 }
 
 .black-line {
-  border-top: 1px solid #000;
+  border-top: 1px solid #020e04;
 }
 
 .white-line {
@@ -165,7 +165,7 @@
 .bayc-button {
   background-color: $primary;
   border-radius: 8px;
-  color: #000;
+  color: #020e04;
   border: 0;
   font-weight: 700;
   font-size: 16px;
@@ -175,7 +175,7 @@
 }
 
 .bayc-button:hover {
-  color: #000;
+  color: #020e04;
   background-color: #fff;
 }
 
@@ -186,7 +186,7 @@
 }
 
 .buy-token-container * {
-  color: #000;
+  color: #020e04;
   text-align: center;
 }
 
@@ -197,13 +197,13 @@
 }
 
 .mint {
-  background-color: #000;
+  background-color: #020e04;
   color: $primary;
   font-weight: 600;
 }
 
 .mint:hover {
-  color: #000;
+  color: #020e04;
   background-color: #fff;
 }
 
@@ -256,7 +256,7 @@
 
 .dropdown-menu,
 .dropdown-item:hover {
-  background-color: #000 !important;
+  background-color: #020e04 !important;
 }
 
 .dropdown-item {
@@ -265,7 +265,7 @@
 
 .dropdown-item.active,
 .dropdown-item:active {
-  background-color: #000 !important;
+  background-color: #020e04 !important;
 }
 
 #nav-link-active {
@@ -274,7 +274,7 @@
 }
 
 #nav {
-  background-color: #000;
+  background-color: #020e04;
   max-width: 1200px;
   margin: auto;
 }

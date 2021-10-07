@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
 
 $bodyfont: 'Poppins', sans-serif;
@@ -16,7 +18,53 @@ $custom-typography: mat-typography-config(
 $dark-primary: mat-palette($mat-grey, 900);
 $dark-accent: mat-palette($mat-amber, a200, a100, a400);
 $dark-warn: mat-palette($mat-deep-orange);
-$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+$mat-dark-theme-background: #020e04;
+// Foreground palette for dark themes.
+$dark-theme-foreground-palette: (
+  base: white,
+  divider: $light-dividers,
+  dividers: $light-dividers,
+  disabled: $light-disabled-text,
+  disabled-button: rgba(white, 0.3),
+  disabled-text: $light-disabled-text,
+  elevation: $mat-dark-theme-background,
+  hint-text: $light-disabled-text,
+  secondary-text: $light-secondary-text,
+  icon: white,
+  icons: white,
+  text: white,
+  slider-min: white,
+  slider-off: rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+// Background palette for dark themes.
+$dark-theme-background-palette: (
+  status-bar: $mat-dark-theme-background,
+  app-bar: map.get(mat-palette($mat-grey, 900), 900),
+  background: $mat-dark-theme-background,
+  hover: rgba(white, 0.04),
+  card: map.get(mat-palette($mat-grey, 800), 800),
+  dialog: map.get(mat-palette($mat-grey, 800), 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map.get(mat-palette($mat-grey, 800), 800),
+  focused-button: $light-focused,
+  selected-button: map.get(mat-palette($mat-grey, 900), 900),
+  selected-disabled-button: map.get(mat-palette($mat-grey, 800), 800),
+  disabled-button-toggle: $mat-dark-theme-background,
+  unselected-chip: map.get(mat-palette($mat-grey, 700), 700),
+  disabled-list-option: $mat-dark-theme-background,
+  tooltip: map.get(mat-palette($mat-grey, 700), 700),
+);
+
+$dark-theme: (
+  primary: $dark-primary,
+  accent: $dark-accent,
+  warn: $dark-warn,
+  is-dark: true,
+  foreground: $dark-theme-foreground-palette,
+  background: $dark-theme-background-palette,
+);
 
 // Default Theme
 @include angular-material-theme($dark-theme);

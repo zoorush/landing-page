@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 
+const newPlayerId = '#new-player';
+const gameId = '#game';
+const teamId = '#team';
+const roadMapId = '#road-map';
+
 export interface Menu {
   state: string;
   name: string;
   type: string;
-  icon: string;
+  icon?: string;
   badge?: {
     type: string;
     value: string;
@@ -12,9 +17,11 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
-  { state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
-  { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
+  { state: newPlayerId, name: 'Become a Player', type: 'anchor' },
+  { state: gameId, type: 'anchor', name: 'The Game' },
+  { state: teamId, type: 'anchor', name: 'Team' },
+  { state: roadMapId, type: 'anchor', name: 'Road Map' },
+  { state: 'lounge', name: 'Player Lounge', type: 'link' },
 ];
 
 @Injectable()
