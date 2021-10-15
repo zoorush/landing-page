@@ -4,7 +4,7 @@
 @import 'variables';
 
 // Bootstrap and its default variables
-@import 'node_modules/bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 
 html,
 body {
@@ -18,7 +18,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 4px;
 }
 
 /* Track */
@@ -56,18 +56,18 @@ body {
 }
 
 .rounded-right {
-  border-top-right-radius: 0.25rem !important;
   border-bottom-right-radius: 0.25rem !important;
+  border-top-right-radius: 0.25rem !important;
 }
 
 .rounded-bottom {
-  border-bottom-right-radius: 0.25rem !important;
   border-bottom-left-radius: 0.25rem !important;
+  border-bottom-right-radius: 0.25rem !important;
 }
 
 .rounded-left {
-  border-top-left-radius: 0.25rem !important;
   border-bottom-left-radius: 0.25rem !important;
+  border-top-left-radius: 0.25rem !important;
 }
 
 .rounded-lg {
@@ -87,9 +87,9 @@ body {
 }
 
 .clearfix::after {
-  display: block;
   clear: both;
   content: '';
+  display: block;
 }
 
 .d-none {
@@ -319,16 +319,16 @@ body {
 }
 
 .embed-responsive {
-  position: relative;
   display: block;
-  width: 100%;
-  padding: 0;
   overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
 }
 
 .embed-responsive::before {
-  display: block;
   content: '';
+  display: block;
 }
 
 .embed-responsive .embed-responsive-item,
@@ -336,13 +336,13 @@ body {
 .embed-responsive embed,
 .embed-responsive object,
 .embed-responsive video {
+  border: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
   position: absolute;
   top: 0;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  border: 0;
 }
 
 .embed-responsive-21by9::before {
@@ -1158,18 +1158,18 @@ body {
 }
 
 .fixed-top {
-  position: fixed;
-  top: 0;
-  right: 0;
   left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 1030;
 }
 
 .fixed-bottom {
-  position: fixed;
-  right: 0;
   bottom: 0;
   left: 0;
+  position: fixed;
+  right: 0;
   z-index: 1030;
 }
 
@@ -1182,25 +1182,25 @@ body {
 }
 
 .sr-only {
-  position: absolute;
-  width: 1px;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  padding: 0;
+  position: absolute;
   white-space: nowrap;
-  border: 0;
+  width: 1px;
 }
 
 .sr-only-focusable:active,
 .sr-only-focusable:focus {
-  position: static;
-  width: auto;
+  clip: auto;
   height: auto;
   overflow: visible;
-  clip: auto;
+  position: static;
   white-space: normal;
+  width: auto;
 }
 
 .shadow-sm {
@@ -3452,20 +3452,20 @@ body {
 }
 
 .stretched-link::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  pointer-events: auto;
-  content: '';
   background-color: rgba(0, 0, 0, 0);
+  bottom: 0;
+  content: '';
+  left: 0;
+  pointer-events: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
 }
 
 .text-monospace {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace !important;
+  'Courier New', monospace !important;
 }
 
 .text-justify {
@@ -3683,11 +3683,11 @@ a.text-dark:focus {
 }
 
 .text-hide {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
   background-color: transparent;
   border: 0;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
 }
 
 .text-decoration-none {
@@ -3715,8 +3715,8 @@ a.text-dark:focus {
   *,
   *::before,
   *::after {
-    text-shadow: none !important;
     box-shadow: none !important;
+    text-shadow: none !important;
   }
 
   a:not(.btn) {
@@ -3804,14 +3804,14 @@ a.text-dark:focus {
   }
 
   .table .thead-dark th {
-    color: inherit;
     border-color: #dee2e6;
+    color: inherit;
   }
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -3825,17 +3825,17 @@ body {
 
 body {
   background-color: #020e04;
-  font-family: 'Montserrat', sans-serif;
   caret-color: transparent;
   color: #fff;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .app {
+  display: block;
   min-height: 100vh;
   overflow: hidden;
-  display: block;
-  position: relative;
   padding-bottom: 450px;
+  position: relative;
 }
 
 @media only screen and (min-width: 992px) {

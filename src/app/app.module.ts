@@ -20,9 +20,10 @@ import { faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DemoMaterialModule } from './demo-material-module';
 import { LayoutModule } from './layouts/layout.module';
 import { SharedModule } from './shared/shared.module';
+import { MatListModule } from "@angular/material/list";
+import { MatDividerModule } from "@angular/material/divider";
 
 @NgModule({
   imports: [
@@ -30,12 +31,13 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     FormsModule,
     FlexLayoutModule,
-    DemoMaterialModule,
     HttpClientModule,
     MatToolbarModule,
     SharedModule,
     LayoutModule,
     MatIconModule,
+    MatListModule,
+    MatDividerModule,
     AppRoutingModule,
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
