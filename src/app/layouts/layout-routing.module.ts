@@ -8,16 +8,11 @@ const routes: Routes = [
     component: FullComponent,
     children: [
       {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-      },
-      {
         path: 'home',
         loadChildren: () => import('../home/home.module').then(m => m.HomeModule)
       },
       {
-        path: '**',
+        path: '',
         redirectTo: '/home',
         pathMatch: 'full'
       }
@@ -26,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes, )],
   exports: [RouterModule]
 })
 export class LayoutRoutingModule { }

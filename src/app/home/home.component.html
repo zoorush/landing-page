@@ -1,6 +1,4 @@
 <div fxLayout="row wrap">
-
-  <!-- Card column -->
   <div fxLayout="column">
     <app-hero></app-hero>
 
@@ -8,15 +6,20 @@
     <app-nfts></app-nfts>
 
     <app-divider></app-divider>
-    <app-section [id]="gameId" [title]="'THE TITLE'">
+    <app-section [id]="gameId" [title]="'THE TEAM'">
       <div>
         <p>Content Coming Soon!</p>
       </div>
     </app-section>
 
     <app-divider></app-divider>
-    <app-section [id]="teamId" [title]="'THE GAME'"></app-section>
+    <app-section [id]="teamId" [title]="'THE GAME'">
+      <div>
+        <p>Content Coming Soon!</p>
+      </div>
+    </app-section>
 
+    <app-divider></app-divider>
+    <app-roadmap></app-roadmap>
   </div>
-
 </div>

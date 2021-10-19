@@ -9,6 +9,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { NftsComponent } from './nfts/nfts.component';
 import { SharedModule } from '../shared/shared.module';
 import { SectionComponent } from './section/section.component';
+import { RoadmapComponent } from './roadmap/roadmap.component';
 
 @NgModule({
   imports: [
@@ -19,8 +20,19 @@ import { SectionComponent } from './section/section.component';
     HomeRoutingModule,
     SharedModule,
   ],
-  declarations: [HomeComponent, HeroComponent, NftsComponent, SectionComponent],
-  exports: [HomeComponent, HeroComponent, NftsComponent, SectionComponent],
+  declarations: [
+    HomeComponent,
+    HeroComponent,
+    NftsComponent,
+    SectionComponent,
+    RoadmapComponent,
+  ],
+  exports: [
+    HomeComponent,
+    HeroComponent,
+    NftsComponent,
+    SectionComponent,
+    RoadmapComponent,
+  ],
 })
-export class HomeModule {
-}
+export class HomeModule {}

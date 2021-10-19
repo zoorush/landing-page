@@ -5,9 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html'
 })
 export class AppHeaderComponent {
-  validUser: boolean = false;
-
-  connectWallet() {
-    alert("Connect to MetaMask Wallet");
-  }
 }

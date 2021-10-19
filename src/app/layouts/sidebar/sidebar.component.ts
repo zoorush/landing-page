@@ -5,7 +5,7 @@ import { MenuItems } from '../../shared/menu-items/menu-items';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class AppSidebarComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
@@ -25,5 +25,9 @@ export class AppSidebarComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
+  }
+
+  connectWallet() {
+    alert('Connect to MetaMask Wallet');
   }
 }

@@ -22,7 +22,7 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
-      - run: npm i
+      - run: npm ci
       - run: npm run build:ci
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

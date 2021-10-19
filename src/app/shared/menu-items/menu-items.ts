@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
 export const newPlayerId = 'new-player';
-export const gameId = 'section';
+export const gameId = 'game';
 export const teamId = 'team';
-export const roadMapId = 'road-map';
+export const roadMapId = 'roadmap';
 
 export interface Menu {
   state: string;
@@ -20,7 +20,7 @@ const MENUITEMS = [
   { state: newPlayerId, name: 'Become a Player', type: 'anchor' },
   { state: gameId, type: 'anchor', name: 'The Game' },
   { state: teamId, type: 'anchor', name: 'Team' },
-  { state: roadMapId, type: 'anchor', name: 'Road Map' },
+  { state: roadMapId, type: 'anchor', name: 'Roadmap' },
   { state: 'lounge', name: 'Player Lounge', type: 'link' },
 ];
 

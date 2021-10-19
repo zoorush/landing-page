@@ -3,24 +3,29 @@
 <!-- ============================================================== -->
 <mat-nav-list appAccordion>
 
-    <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()"
-        group="{{menuitem.state}}">
-        <ng-container [ngSwitch]="menuitem.type">
-            <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngSwitchCase="'link'">
-                <mat-icon>{{ menuitem.icon }}</mat-icon>
-                <span>{{ menuitem.name }}</span>
-                <span fxFlex></span>
-                <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
-            </a>
+  <button class="m-r-20 btn-outline-primary" fxHide="false" fxHide.gt-xs mat-button (click)="connectWallet()"
+          color="accent">
+    Connect Wallet
+  </button>
 
-            <a class="" appAccordionToggle [routerLink]='"/home"' [fragment]="menuitem.state" *ngSwitchCase="'anchor'">
-                <mat-icon>{{ menuitem.icon }}</mat-icon>
-                <span>{{ menuitem.name }}</span>
-                <span fxFlex></span>
-                <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
-            </a>
-        </ng-container>
+  <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()"
+                 group="{{menuitem.state}}">
+    <ng-container [ngSwitch]="menuitem.type">
+      <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngSwitchCase="'link'">
+        <mat-icon>{{ menuitem.icon }}</mat-icon>
+        <span>{{ menuitem.name }}</span>
+        <span fxFlex></span>
+        <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+      </a>
 
-    </mat-list-item>
+      <a class="" appAccordionToggle [routerLink]="['/', 'home']" [fragment]="menuitem.state" *ngSwitchCase="'anchor'">
+        <mat-icon>{{ menuitem.icon }}</mat-icon>
+        <span>{{ menuitem.name }}</span>
+        <span fxFlex></span>
+        <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+      </a>
+    </ng-container>
+
+  </mat-list-item>
 
 </mat-nav-list>

@@ -22,6 +22,12 @@
         <!-- ============================================================== -->
         <app-header></app-header>
 
+
+<button class="m-r-20 btn-outline-primary" fxShow="false" fxShow.gt-xs mat-button (click)="connectWallet()"
+    color="accent">
+    Connect Wallet
+</button>
+
         <button mat-icon-button fxHide="false" fxHide.gt-sm (click)="toggle()" value="sidebarclosed">
             <mat-icon>menu</mat-icon>
         </button>

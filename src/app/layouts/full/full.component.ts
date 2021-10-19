@@ -32,4 +32,8 @@ export class FullComponent implements OnDestroy {
   toggle() {
     this.opened = !this.opened;
   }
+
+  connectWallet() {
+    alert('Connect to MetaMask Wallet');
+  }
 }
