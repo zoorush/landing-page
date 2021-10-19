@@ -5,6 +5,9 @@ $transition-function: cubic-bezier(0.39, 0.575, 0.565, 1);
   @return $property $transition-speed $transition-function;
 }
 
+.nft-card {
+}
+
 .show-text-on-hover .mat-card-content {
   background-color: transparent;
   color: transparent;

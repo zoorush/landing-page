@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-const newPlayerId = '#new-player';
-const gameId = '#game';
-const teamId = '#team';
-const roadMapId = '#road-map';
+export const newPlayerId = 'new-player';
+export const gameId = 'section';
+export const teamId = 'team';
+export const roadMapId = 'road-map';
 
 export interface Menu {
   state: string;

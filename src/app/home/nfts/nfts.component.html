@@ -1,0 +1,5 @@
+<app-section [title]="'BECOME A PLAYER'" [id]="id">
+  <div fxFlex="100" fxLayout="wrap column" class="justify-content-center">
+    <app-sticker *ngFor="let nft of nfts" [person]="nft" class="col-lg-4 col-sm-6 col-xs-12 col-12"></app-sticker>
+  </div>
+</app-section>

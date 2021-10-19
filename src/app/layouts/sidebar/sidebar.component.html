@@ -3,7 +3,7 @@
 <!-- ============================================================== -->
 <mat-nav-list appAccordion>
 
-    <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected"
+    <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()"
         group="{{menuitem.state}}">
         <ng-container [ngSwitch]="menuitem.type">
             <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngSwitchCase="'link'">
@@ -13,7 +13,7 @@
                 <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
             </a>
 
-            <a class="" appAccordionToggle [href]="menuitem.state" *ngSwitchCase="'anchor'">
+            <a class="" appAccordionToggle [routerLink]='"/home"' [fragment]="menuitem.state" *ngSwitchCase="'anchor'">
                 <mat-icon>{{ menuitem.icon }}</mat-icon>
                 <span>{{ menuitem.name }}</span>
                 <span fxFlex></span>

@@ -1,21 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { ExtendedModule, FlexLayoutModule } from "@angular/flex-layout";
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { DemoMaterialModule } from '../demo-material-module';
-import { AccordionAnchorDirective, AccordionDirective, AccordionLinkDirective } from './accordion';
+import {
+  AccordionAnchorDirective,
+  AccordionDirective,
+  AccordionLinkDirective,
+} from './accordion';
 import { BrandComponent } from './brand/brand.component';
 import { MenuItems } from './menu-items/menu-items';
 import { SocialIconsComponent } from './social-icons/social-icons.component';
-import { SpinnerComponent } from './spinner.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 import { UserComponent } from './user/user.component';
+import { StickerComponent } from './sticker/sticker.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { DividerComponent } from './divider/divider.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    DemoMaterialModule,
-    FlexLayoutModule,
     FontAwesomeModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    ExtendedModule,
+    FlexLayoutModule,
   ],
   declarations: [
     AccordionAnchorDirective,
@@ -25,6 +38,8 @@ import { UserComponent } from './user/user.component';
     UserComponent,
     BrandComponent,
     SocialIconsComponent,
+    StickerComponent,
+    DividerComponent,
   ],
   exports: [
     AccordionAnchorDirective,
@@ -34,7 +49,9 @@ import { UserComponent } from './user/user.component';
     UserComponent,
     BrandComponent,
     SocialIconsComponent,
+    StickerComponent,
+    DividerComponent,
   ],
-  providers: [MenuItems]
+  providers: [MenuItems],
 })
-export class SharedModule { }
+export class SharedModule {}

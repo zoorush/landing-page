@@ -1,23 +1,13 @@
 import { Component } from '@angular/core';
-import { NFT } from './sticker/sticker.component';
-
-const dummyUser = {
-  name: 'test',
-  backgroundImage: 'background/profile-bg.jpg',
-  description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum.`,
-  image: 'users/1.jpg',
-  imageAlt: 'user',
-};
+import { gameId, newPlayerId, teamId } from '../shared/menu-items/menu-items';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  nfts: NFT[] = [dummyUser, dummyUser, dummyUser, dummyUser, dummyUser, dummyUser];
+  gameId = gameId;
+  newPlayerId = newPlayerId;
+  teamId = teamId;
 }

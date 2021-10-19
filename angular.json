@@ -120,12 +120,22 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {}
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "./**/*.ts",
+              "./**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "defaultProject": "zoorush",
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }

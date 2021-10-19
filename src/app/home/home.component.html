@@ -1,11 +1,22 @@
 <div fxLayout="row wrap">
 
-  <app-hero></app-hero>
-
   <!-- Card column -->
-  <div fxFlex="100" class="wrap-column p-2">
-    <mat-divider></mat-divider>
-    <h2><i>BECOME A PLAYER</i></h2>
-    <app-sticker *ngFor="let nft of nfts" [person]="nft" class="col-lg-4 col-sm-12 col-12"></app-sticker>
+  <div fxLayout="column">
+    <app-hero></app-hero>
+
+    <app-divider></app-divider>
+    <app-nfts></app-nfts>
+
+    <app-divider></app-divider>
+    <app-section [id]="gameId" [title]="'THE TITLE'">
+      <div>
+        <p>Content Coming Soon!</p>
+      </div>
+    </app-section>
+
+    <app-divider></app-divider>
+    <app-section [id]="teamId" [title]="'THE GAME'"></app-section>
+
   </div>
+
 </div>

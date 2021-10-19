@@ -5,7 +5,6 @@ export interface NFT {
   description: string;
   image: string;
   imageAlt: string;
-  backgroundImage: string;
 }
 
 @Component({

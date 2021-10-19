@@ -16,8 +16,8 @@ File: scss
  *	7. Widgets
  *	8. Custom Templates
  */
-/******************* 
-Global Styles 
+/*******************
+Global Styles
 *******************/
 
 * {
@@ -723,7 +723,7 @@ Mat card
     padding: 24px;
   }
   .mat-card-image {
-    width: calc(100% + 0);
+    width: calc(100%);
     margin: 0 0 0 0;
   }
   .mat-card-header {

@@ -5,25 +5,30 @@ import { AngularFireModule } from '@angular/fire/compat';
 import {
   AngularFireAnalyticsModule,
   APP_NAME,
-  APP_VERSION, COLLECTION_ENABLED, DEBUG_MODE as ANALYTICS_DEBUG_MODE,
+  APP_VERSION,
+  COLLECTION_ENABLED,
+  DEBUG_MODE as ANALYTICS_DEBUG_MODE,
   ScreenTrackingService,
-  UserTrackingService
+  UserTrackingService,
 } from '@angular/fire/compat/analytics';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
 import { faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layouts/layout.module';
 import { SharedModule } from './shared/shared.module';
-import { MatListModule } from "@angular/material/list";
-import { MatDividerModule } from "@angular/material/divider";
 
 @NgModule({
   imports: [
@@ -41,11 +46,9 @@ import { MatDividerModule } from "@angular/material/divider";
     AppRoutingModule,
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule
+    AngularFireAnalyticsModule,
   ],
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   providers: [
     UserTrackingService,
     ScreenTrackingService,
@@ -55,10 +58,10 @@ import { MatDividerModule } from "@angular/material/divider";
     { provide: APP_NAME, useValue: 'Angular' },
     {
       provide: LocationStrategy,
-      useClass: PathLocationStrategy
-    }
+      useClass: PathLocationStrategy,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
