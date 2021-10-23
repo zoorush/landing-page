@@ -3,20 +3,45 @@
     <app-hero></app-hero>
 
     <app-divider></app-divider>
+    <app-section [id]="'big-art'" class="my-3">
+      <app-fade-in direction="up">
+        <div fxLayout="row wrap">
+          <img class="rounded-pill col-lg-7 col-sm-12 col-12" [src]="'/assets/images/gifs/big.gif'">
+          <div class="p-5 col-lg-5 col-sm-12 col-12 order-lg-first m-auto">
+            <h1>
+              ZooRush is an Ethereum blockchain game based on a collection of 9,500 designed NFTs.
+            </h1>
+            <h1>
+              Eleven characters of the game are inspired by the most popular American Football mascots.
+            </h1>
+            <h1>
+              Each and every NFT artwork grants you access to the game and is equipped with 100+ unique traits and
+              abilities.
+            </h1>
+          </div>
+        </div>
+      </app-fade-in>
+    </app-section>
+
+    <app-fade-in direction="right" class="make-center">
+      <button mat-flat-button color="primary" class="col-8 my-3 p-4">
+        <span style="font-size: 2rem">MINT</span>
+      </button>
+    </app-fade-in>
+
+    <app-divider></app-divider>
     <app-nfts></app-nfts>
 
     <app-divider></app-divider>
-    <app-section [id]="gameId" [title]="'THE TEAM'">
+    <app-section [id]="gameId" [title]="'THE GAME'">
       <div>
         <p>Content Coming Soon!</p>
       </div>
     </app-section>
 
     <app-divider></app-divider>
-    <app-section [id]="teamId" [title]="'THE GAME'">
-      <div>
-        <p>Content Coming Soon!</p>
-      </div>
+    <app-section [id]="teamId" [title]="'THE TEAM'">
+      <app-team></app-team>
     </app-section>
 
     <app-divider></app-divider>

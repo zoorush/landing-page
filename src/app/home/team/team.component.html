@@ -1,0 +1,21 @@
+<div fxLayout="row wrap" class="justify-content-center align-items-stretch">
+  <div *ngFor="let member of members; index as i;" class="col-3 py-4">
+    <app-fade-in direction="up" [delay]="100 * i">
+    <mat-card class="oh text-center little-profile h-100">
+      <mat-card-content class="h-100" fxLayout="column">
+        <div class="pro-img">
+          <img [src]="'/assets/images/nfts/'+member.image" width="200" alt="user" class="img-circle">
+        </div>
+        <h2 class="m-b-0">{{member.name}}</h2>
+        <h4 class="m-t-0 " *ngIf="member.pretitle">{{member.pretitle}}</h4>
+        <h4 class="m-t-0 ">{{member.title}}</h4>
+        <div fxFlex="100" style="display: flex;flex-direction: column-reverse;">
+          <p style="height: fit-content">
+            <i>"{{member.quote}}"</i>
+          </p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+      </app-fade-in>
+  </div>
+</div>

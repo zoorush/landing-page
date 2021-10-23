@@ -17,3 +17,10 @@
 app-divider {
   margin: 0 1rem;
 }
+
+::ng-deep .make-center {
+  .fade-in-section {
+    display: flex;
+    justify-content: center;
+  }
+}

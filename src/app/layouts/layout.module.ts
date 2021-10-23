@@ -14,7 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from "@angular/material/button";
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -28,7 +28,7 @@ import { MatButtonModule } from "@angular/material/button";
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatButtonModule,
+    MatButtonModule
   ],
   declarations: [
     FullComponent,

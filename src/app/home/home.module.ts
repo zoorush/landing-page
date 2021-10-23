@@ -10,6 +10,8 @@ import { NftsComponent } from './nfts/nfts.component';
 import { SharedModule } from '../shared/shared.module';
 import { SectionComponent } from './section/section.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
+import { MatButtonModule } from "@angular/material/button";
+import { TeamComponent } from "./team/team.component";
 
 @NgModule({
   imports: [
@@ -19,6 +21,7 @@ import { RoadmapComponent } from './roadmap/roadmap.component';
     MatCardModule,
     HomeRoutingModule,
     SharedModule,
+    MatButtonModule,
   ],
   declarations: [
     HomeComponent,
@@ -26,6 +29,7 @@ import { RoadmapComponent } from './roadmap/roadmap.component';
     NftsComponent,
     SectionComponent,
     RoadmapComponent,
+    TeamComponent,
   ],
   exports: [
     HomeComponent,
@@ -33,6 +37,7 @@ import { RoadmapComponent } from './roadmap/roadmap.component';
     NftsComponent,
     SectionComponent,
     RoadmapComponent,
+    TeamComponent,
   ],
 })
 export class HomeModule {}

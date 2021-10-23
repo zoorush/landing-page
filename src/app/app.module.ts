@@ -1,4 +1,8 @@
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {
+  CommonModule,
+  LocationStrategy,
+  PathLocationStrategy,
+} from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -47,6 +51,7 @@ import { SharedModule } from './shared/shared.module';
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
+    CommonModule,
   ],
   declarations: [AppComponent],
   providers: [

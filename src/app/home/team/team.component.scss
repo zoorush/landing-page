@@ -1,0 +1,15 @@
+.little-profile {
+  .pro-img,
+  .pro-img:first-child {
+    margin-top: 15px;
+    margin-bottom: 20px;
+
+    img {
+      width: 168px;
+      height: 168px;
+      -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 100%;
+    }
+  }
+}

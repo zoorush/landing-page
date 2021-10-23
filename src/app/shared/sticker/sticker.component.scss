@@ -23,3 +23,19 @@ $transition-function: cubic-bezier(0.39, 0.575, 0.565, 1);
     color: inherit;
   }
 }
+
+.little-profile {
+  .pro-img,
+  .pro-img:first-child {
+    margin-top: -110px;
+    margin-bottom: 20px;
+
+    img {
+      width: 128px;
+      height: 128px;
+      -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 100%;
+    }
+  }
+}
