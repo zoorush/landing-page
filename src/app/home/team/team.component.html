@@ -1,6 +1,6 @@
 <div fxLayout="row wrap" class="justify-content-center">
   <div *ngFor="let member of members; index as i;" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="33" fxFlex.gt-md="25" fxLayout="column" >
-    <app-fade-in direction="up" [delay]="100 * i" fxLayout="column" fxFlex="100" >
+    <app-fade-in direction="up" [delay]="100 * (i % 3)" fxLayout="column" fxFlex="100" >
       <mat-card class="oh text-center little-profile" fxLayout="column"  fxFlex="100">
         <mat-card-content class="h-100" fxLayout="column" fxFlex="100">
           <div class="pro-img">
