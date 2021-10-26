@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { gameId, newPlayerId, teamId } from '../shared/menu-items/menu-items';
+import { gameId, newPlayerId, teamId } from '../shared/services/menu-items/menu-items';
 
 @Component({
   selector: 'app-home',

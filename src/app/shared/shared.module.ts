@@ -9,17 +9,17 @@ import {
   AccordionAnchorDirective,
   AccordionDirective,
   AccordionLinkDirective,
-} from './accordion';
-import { BrandComponent } from './brand/brand.component';
-import { MenuItems } from './menu-items/menu-items';
-import { SocialIconsComponent } from './social-icons/social-icons.component';
-import { SpinnerComponent } from './spinner/spinner.component';
-import { UserComponent } from './user/user.component';
-import { StickerComponent } from './sticker/sticker.component';
+} from './components/accordion';
+import { BrandComponent } from './components/brand/brand.component';
+import { MenuItems } from './services/menu-items/menu-items';
+import { SocialIconsComponent } from './components/social-icons/social-icons.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { UserComponent } from './components/user/user.component';
+import { StickerComponent } from './components/sticker/sticker.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { DividerComponent } from './divider/divider.component';
-import { FadeInComponent } from './fade-in/fade-in.component';
-import { StickyHeaderComponent } from './sticky-header/sticky-header.component';
+import { DividerComponent } from './components/divider/divider.component';
+import { FadeInComponent } from './components/fade-in/fade-in.component';
+import { StickyHeaderComponent } from './components/sticky-header/sticky-header.component';
 
 @NgModule({
   imports: [

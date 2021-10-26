@@ -12,6 +12,7 @@ import { SectionComponent } from './section/section.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
 import { MatButtonModule } from "@angular/material/button";
 import { TeamComponent } from "./team/team.component";
+import { MatStepperModule } from "@angular/material/stepper";
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { TeamComponent } from "./team/team.component";
     HomeRoutingModule,
     SharedModule,
     MatButtonModule,
+    MatStepperModule,
   ],
   declarations: [
     HomeComponent,

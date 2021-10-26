@@ -1,3 +1,9 @@
 .user-profile {
   background: url('/assets/images/background/user-info.jpg') no-repeat;
 }
+
+::ng-deep {
+  .mat-list-item-content {
+    flex: 1;
+  }
+}

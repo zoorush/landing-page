@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NFT } from '../../shared/sticker/sticker.component';
-import { newPlayerId } from "../../shared/menu-items/menu-items";
+import { NFT } from '../../shared/components/sticker/sticker.component';
+import { newPlayerId } from "../../shared/services/menu-items/menu-items";
 
 @Component({
   selector: 'app-nfts',

@@ -34,16 +34,19 @@ export class TeamComponent {
     image: '0.png'
   }, {
     name: "Sanders",
+    pretitle: 'Good hair',
     title: "Artist, designer",
     quote: `What is American Football?`,
     image: '3.png'
   }, {
     name: "Butkus",
+    pretitle: 'Joker',
     title: "Solidity dev, software engineer",
     quote: `Solving an equation is like making a touchdown`,
     image: '41.png'
   }, {
     name: "Di Vinci 333",
+    pretitle: 'Good bloke',
     title: "Advisor",
     quote: `I like these guys`,
     image: '67.png'

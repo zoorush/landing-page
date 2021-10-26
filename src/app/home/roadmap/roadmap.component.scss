@@ -1,0 +1,11 @@
+::ng-deep app-fade-in:not(:last-of-type) .mat-vertical-stepper-content {
+  border-left: #e08a11 solid 1px;
+}
+
+::ng-deep .mat-step-header .mat-step-icon {
+  background-color: #e08a11;
+}
+
+::ng-deep .mat-stepper-vertical {
+  background-color: transparent;
+}

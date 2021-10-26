@@ -5,19 +5,19 @@ import {
   Component, ElementRef,
   OnDestroy
 } from "@angular/core";
-import { MenuItems } from '../../shared/menu-items/menu-items';
+import { MenuItems } from '../../shared/services/menu-items/menu-items';
 import { fromEvent, Observable, of } from "rxjs";
 import { map, share, tap, throttleTime } from "rxjs/operators";
+import { ScrollService } from "../../shared/services/scroll/scroll.service";
 
 /** @title Responsive sidenav */
 @Component({
   selector: 'app-full-layout',
   templateUrl: 'full.component.html',
-  styles: [`
-    .z-2 {
-      z-index: 2;
-    }
-  `]
+  styleUrls: ['./full.component.scss'],
+  providers: [
+    ScrollService
+  ]
 })
 export class FullComponent implements AfterViewInit, OnDestroy {
   mobileQuery: MediaQueryList;
@@ -32,6 +32,7 @@ export class FullComponent implements AfterViewInit, OnDestroy {
     media: MediaMatcher,
     public menuItems: MenuItems,
     private elementRef: ElementRef,
+    private scrollDirectionService: ScrollService
   ) {
     this.opened = false;
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
@@ -44,9 +45,10 @@ export class FullComponent implements AfterViewInit, OnDestroy {
     const threshold = 300;
     this.scroll$ = fromEvent(el, 'scroll').pipe(
       throttleTime(20),
-      map(() => el.scrollTop),
-      tap((e) => console.log("scroll", e))
+      map(() => el.scrollTop)
     );
+
+    this.scrollDirectionService.setScroll(this.scroll$);
 
     this.showHeader$ = this.scroll$.pipe(
       map((scrollYPosition: number) => scrollYPosition > threshold),
