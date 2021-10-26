@@ -11,7 +11,7 @@
         <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
       </a>
 
-      <a fxFlex="100" mat-flat-button color="accent" *ngSwitchCase="true"  [href]="'/home#' + menuitem.state">
+      <a fxFlex="100" mat-flat-button color="accent" *ngSwitchCase="true"  [href]="'/home#' + menuitem.state" (click)="toggle()">
         <span>{{ menuitem.name }}</span>
         <span fxFlex></span>
         <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
@@ -19,7 +19,7 @@
     </ng-container>
   </ng-container>
 
-  <button fxFlex="100" mat-flat-button class="mt-2" fxHide="false" fxHide.gt-xs mat-button (click)="connectWallet()"
+  <button fxFlex="100" mat-flat-button class="mt-2" fxHide="false" fxHide.gt-xs mat-button (click)="openDialog({ state: '', name: '', type: 'anchor', enabled: false })"
           color="accent">
     Connect Wallet
   </button>

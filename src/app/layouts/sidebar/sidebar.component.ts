@@ -1,5 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from "@angular/core";
 import { MenuItems } from '../../shared/services/menu-items/menu-items';
 import { AbstractNavbarComponent } from '../abstract-navbar.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AppSidebarComponent extends AbstractNavbarComponent {
   validUser: boolean = false;
+  @Input() toggle: () => void = () => {};
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,

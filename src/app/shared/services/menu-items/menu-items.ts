@@ -22,7 +22,7 @@ const MENUITEMS = [
   { state: gameId, type: 'anchor', name: 'The Game'},
   { state: teamId, type: 'anchor', name: 'Team', enabled: true },
   { state: roadMapId, type: 'anchor', name: 'Roadmap', enabled: true  },
-  { state: 'lounge', name: 'Player Lounge', type: 'anchor' },
+  { state: 'lounge', name: 'Lounge', type: 'anchor' },
 ];
 
 @Injectable()

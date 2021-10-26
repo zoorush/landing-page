@@ -15,32 +15,32 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   margin: 0;
 }
-
-/* width */
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-  cursor: pointer;
-}
-
-/* Handle on focus */
-::-webkit-scrollbar-thumb:active {
-  cursor: pointer;
-}
+//
+///* width */
+//::-webkit-scrollbar {
+//  width: 4px;
+//}
+//
+///* Track */
+//::-webkit-scrollbar-track {
+//  background: #f1f1f1;
+//}
+//
+///* Handle */
+//::-webkit-scrollbar-thumb {
+//  background: #888;
+//}
+//
+///* Handle on hover */
+//::-webkit-scrollbar-thumb:hover {
+//  background: #555;
+//  cursor: pointer;
+//}
+//
+///* Handle on focus */
+//::-webkit-scrollbar-thumb:active {
+//  cursor: pointer;
+//}
 
 .rounded-sm {
   border-radius: 0.2rem !important;

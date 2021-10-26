@@ -5,10 +5,12 @@ import {
   Component, ElementRef,
   OnDestroy
 } from "@angular/core";
-import { MenuItems } from '../../shared/services/menu-items/menu-items';
+import { Menu, MenuItems } from "../../shared/services/menu-items/menu-items";
 import { fromEvent, Observable, of } from "rxjs";
 import { map, share, tap, throttleTime } from "rxjs/operators";
 import { ScrollService } from "../../shared/services/scroll/scroll.service";
+import { DialogDataExampleDialogComponent } from "../abstract-navbar.component";
+import { MatDialog } from "@angular/material/dialog";
 
 /** @title Responsive sidenav */
 @Component({
@@ -32,7 +34,8 @@ export class FullComponent implements AfterViewInit, OnDestroy {
     media: MediaMatcher,
     public menuItems: MenuItems,
     private elementRef: ElementRef,
-    private scrollDirectionService: ScrollService
+    private scrollDirectionService: ScrollService,
+    public dialog: MatDialog,
   ) {
     this.opened = false;
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
@@ -61,11 +64,21 @@ export class FullComponent implements AfterViewInit, OnDestroy {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
 
-  toggle() {
+  toggle = () => {
     this.opened = !this.opened;
   }
 
   connectWallet() {
     alert('Connect to MetaMask Wallet');
+  }
+
+  openDialog(menuItem: Menu) {
+    if (menuItem.state !== 'team' && menuItem.state !== 'roadmap') {
+      this.dialog.open(DialogDataExampleDialogComponent, {
+        data: {
+          menuItem,
+        },
+      });
+    }
   }
 }
