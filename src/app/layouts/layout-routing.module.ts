@@ -15,7 +15,11 @@ const routes: Routes = [
         path: '',
         redirectTo: '/home',
         pathMatch: 'full'
-      }
+      },
+      {
+        path: 'mini-game',
+        loadChildren: () => import('../mini-game/mini-game.module').then(m => m.MiniGameModule)
+      },
     ]
   }
 ];
