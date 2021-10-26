@@ -40,7 +40,7 @@ export abstract class AbstractNavbarComponent implements OnDestroy {
         },
       });
     } else {
-      this.router.navigate([], { fragment: menuItem.state })
+      this.router.navigateByUrl('/home#' + menuItem.state, { skipLocationChange: false })
     }
   }
 

@@ -3,14 +3,21 @@
 <!-- ============================================================== -->
 <mat-nav-list fxLayout="column" class="p-2 mt-5">
 
+  <ng-container *ngFor="let menuitem of menuItems.getMenuitem()">
+    <ng-container [ngSwitch]="menuitem.enabled">
+      <a fxFlex="100" mat-flat-button color="accent" *ngSwitchDefault  (click)="openDialog(menuitem)">
+        <span>{{ menuitem.name }}</span>
+        <span fxFlex></span>
+        <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+      </a>
 
-  <button *ngFor="let menuitem of menuItems.getMenuitem()"
-          fxFlex="100" mat-flat-button color="accent"
-          (click)="openDialog(menuitem)">
-    <span>{{ menuitem.name }}</span>
-    <span fxFlex></span>
-    <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
-  </button>
+      <a fxFlex="100" mat-flat-button color="accent" *ngSwitchCase="true"  [href]="'/home#' + menuitem.state">
+        <span>{{ menuitem.name }}</span>
+        <span fxFlex></span>
+        <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+      </a>
+    </ng-container>
+  </ng-container>
 
   <button fxFlex="100" mat-flat-button class="mt-2" fxHide="false" fxHide.gt-xs mat-button (click)="connectWallet()"
           color="accent">

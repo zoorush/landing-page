@@ -9,6 +9,7 @@ export interface Menu {
   state: string;
   name: string;
   type: string;
+  enabled?: boolean;
   icon?: string;
   badge?: {
     type: string;
@@ -18,9 +19,9 @@ export interface Menu {
 
 const MENUITEMS = [
   { state: newPlayerId, name: 'Become a Player', type: 'anchor' },
-  { state: gameId, type: 'anchor', name: 'The Game' },
-  { state: teamId, type: 'anchor', name: 'Team' },
-  { state: roadMapId, type: 'anchor', name: 'Roadmap' },
+  { state: gameId, type: 'anchor', name: 'The Game'},
+  { state: teamId, type: 'anchor', name: 'Team', enabled: true },
+  { state: roadMapId, type: 'anchor', name: 'Roadmap', enabled: true  },
   { state: 'lounge', name: 'Player Lounge', type: 'anchor' },
 ];
 
