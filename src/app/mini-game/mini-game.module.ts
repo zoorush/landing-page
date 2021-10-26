@@ -5,7 +5,7 @@ import { MiniGameComponent } from './mini-game.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from "@angular/material/icon";
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   exports: [MiniGameComponent],
