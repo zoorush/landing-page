@@ -6,20 +6,16 @@ import { faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons';
   templateUrl: './social-icons.component.html',
   styleUrls: ['./social-icons.component.scss']
 })
-export class SocialIconsComponent implements OnInit {
+export class SocialIconsComponent {
   socialIcons = [{
     name: 'twitter',
     icon: faTwitter,
-    link: 'http://twitter.com/ZooRush'
-  }, {
-    name: 'discord',
-    icon: faDiscord,
-    link: 'http://discord.com/ZooRush'
-  }]
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+    link: 'http://twitter.com/ZooRushNFT'
+  } //, {
+    // name: 'discord',
+    // icon: faDiscord,
+    // link: 'http://discord.com/ZooRush'
+  //}
+  ]
 
 }

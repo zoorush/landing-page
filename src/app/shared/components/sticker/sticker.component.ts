@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export interface NFT {
   name: string;
   description: string;
+  details?: string;
   image: string;
   imageAlt: string;
 }
@@ -12,13 +13,8 @@ export interface NFT {
   templateUrl: './sticker.component.html',
   styleUrls: ['./sticker.component.scss']
 })
-export class StickerComponent implements OnInit {
+export class StickerComponent {
 
   @Input() person!: NFT;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

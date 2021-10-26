@@ -1,30 +1,26 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { MenuItems } from '../../shared/services/menu-items/menu-items';
+import { AbstractNavbarComponent } from "../abstract-navbar.component";
+import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
-export class AppSidebarComponent implements OnDestroy {
-  mobileQuery: MediaQueryList;
+export class AppSidebarComponent extends AbstractNavbarComponent {
   validUser: boolean = false;
-
-  private _mobileQueryListener: () => void;
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
-    public menuItems: MenuItems
+    menuItems: MenuItems,
+    dialog: MatDialog,
+    router: Router
   ) {
-    this.mobileQuery = media.matchMedia('(min-width: 768px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addEventListener('change', this._mobileQueryListener);
-  }
-
-  ngOnDestroy(): void {
-    this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
+    super(changeDetectorRef, media,  menuItems, dialog, router);
   }
 
   connectWallet() {

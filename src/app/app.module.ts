@@ -33,6 +33,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layouts/layout.module';
 import { SharedModule } from './shared/shared.module';
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   imports: [
@@ -52,6 +53,7 @@ import { SharedModule } from './shared/shared.module';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     CommonModule,
+    MatDialogModule
   ],
   declarations: [AppComponent],
   providers: [

@@ -14,7 +14,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { DialogDataExampleDialogComponent } from './abstract-navbar.component';
 
 @NgModule({
   imports: [
@@ -28,7 +30,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   declarations: [
     FullComponent,
@@ -36,6 +39,7 @@ import { MatButtonModule } from '@angular/material/button';
     AppFooterComponent,
     AppSidebarComponent,
     TopbarComponent,
+    DialogDataExampleDialogComponent,
   ],
   exports: [
     FullComponent,
@@ -43,6 +47,7 @@ import { MatButtonModule } from '@angular/material/button';
     AppFooterComponent,
     AppSidebarComponent,
     TopbarComponent,
+    DialogDataExampleDialogComponent
   ],
 })
 export class LayoutModule {}

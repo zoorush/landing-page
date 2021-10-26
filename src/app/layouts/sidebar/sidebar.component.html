@@ -5,13 +5,12 @@
 
 
   <button *ngFor="let menuitem of menuItems.getMenuitem()"
-  fxFlex="100" mat-flat-button color="accent" [routerLink]="['/', 'home']" [fragment]="menuitem.state">
-        <mat-icon>{{ menuitem.icon }}</mat-icon>
-        <span>{{ menuitem.name }}</span>
-        <span fxFlex></span>
-        <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+          fxFlex="100" mat-flat-button color="accent"
+          (click)="openDialog(menuitem)">
+    <span>{{ menuitem.name }}</span>
+    <span fxFlex></span>
+    <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
   </button>
-
 
   <button fxFlex="100" mat-flat-button class="mt-2" fxHide="false" fxHide.gt-xs mat-button (click)="connectWallet()"
           color="accent">
