@@ -1,0 +1,21 @@
+<mat-card
+  class="nft-card oh text-center little-profile show-text-on-hover"
+  tabindex="-1">
+  <img
+    mat-card-image
+    [src]="'assets/images/' + person.image"
+    [alt]="person.imageAlt"
+    class="rounded-sm" />
+  <mat-card-content
+    fxFlexFill
+    fxLayout="row"
+    class="justify-content-center align-items-center">
+    <div style="height: fit-content; flex: 1">
+      <h2 class="m-b-0 mt-auto">{{ person.description }}</h2>
+      <h4 class="m-t-0 mb-auto">{{ person.details }}</h4>
+    </div>
+  </mat-card-content>
+</mat-card>
+<div class="text-center mt-n2">
+  <h2>{{ person.name }}</h2>
+</div>

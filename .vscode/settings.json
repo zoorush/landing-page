@@ -1,8 +1,0 @@
-{
-  "eslint.workingDirectories": ["."],
-  "editor.autoIndent": "advanced",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  }
-}

@@ -1,8 +1,0 @@
-<section [attr.id]="id">
-  <div [attr.id]="id" fxLayout="column wrap" class="mx-3">
-    <app-fade-in direction="up" fxLayout>
-      <h1 fxFlex="100" *ngIf="title && title.length > 0" class="text-center"><i>{{title}}</i></h1>
-    </app-fade-in>
-    <ng-content></ng-content>
-  </div>
-</section>
