@@ -6,125 +6,16 @@
   </div>
   <div class="px-lg-5 px-0">
     <div class="mb-3 mb-md-0 px-lg-5 px-0 col-12">
-      <app-fade-in direction="right" delay="1000">
+      <app-fade-in direction="right" delay="1000" *ngFor="let stage of stages; trackBy trackById; index as i">
         <mat-stepper orientation="vertical" fxFlex="100">
           <mat-step [completed]="true" state="">
-            <ng-template matStepLabel>Stage 1</ng-template>
+            <ng-template matStepLabel><h2 class="m-0">Stage {{ i }}</h2></ng-template>
             <ng-template matStepContent>
-              <p>Biggest giveaway of 10 ZooRush NFTs</p>
-              <p>Whitepaper release</p>
-              <p>Club creation: every character belongs to each ZooRush club</p>
-              <p>Announcement of ZooRush Mini game (*First Top 100 players will be able to test the main P2E ZooRush
-                game)</p>
+              <p *ngFor="let line of stage.lines" [ngClass]="{'complete': line.completed}">{{line.text}}</p>
             </ng-template>
           </mat-step>
         </mat-stepper>
       </app-fade-in>
-      <app-fade-in direction="right" delay="1000">
-        <mat-stepper orientation="vertical" fxFlex="100">
-          <mat-step [completed]="true" state="">
-            <ng-template matStepLabel>Stage 2</ng-template>
-            <ng-template matStepContent>
-              <p>Beta Version release of ZooRush main P2E game for early adopters and active community members</p>
-              <p>Exclusive American Football Online Quiz for every ZooRush holder</p>
-              <p>Jerseys NFT collection airdrop for every ZooRush holder</p>
-            </ng-template>
-          </mat-step>
-        </mat-stepper>
-      </app-fade-in>
-      <app-fade-in direction="right" delay="1000">
-        <mat-stepper orientation="vertical" fxFlex="100">
-          <mat-step [completed]="true" state="">
-            <ng-template matStepLabel>Stage 3</ng-template>
-            <ng-template matStepContent>
-              <p>Release of main P2E ZooRush game</p>
-              <p>5% Sales go to charitable organization (Discord voting)</p>
-            </ng-template>
-          </mat-step>
-        </mat-stepper>
-      </app-fade-in>
-      <app-fade-in direction="right" delay="1000">
-        <mat-stepper orientation="vertical" fxFlex="100">
-          <mat-step [completed]="true" state="">
-            <ng-template matStepLabel>Stage 4</ng-template>
-            <ng-template matStepContent>
-              <p>Creation of internal Marketplace</p>
-              <p>Additional collection announcements to expand number of game users (without loss of rarity for existing
-                holders)</p>
-            </ng-template>
-          </mat-step>
-        </mat-stepper>
-      </app-fade-in>
-
-      <!--    <div class="mb-3 mb-lg-1 row">-->
-      <!--      <div class="m-auto col-lg-1 col-2 offset-lg-1 offset-1">-->
-      <!--        <p class="goal">10%</p>-->
-      <!--      </div>-->
-      <!--      <div class="m-auto col-lg-10 col-9">-->
-      <!--        <p class="text-decoration-line-through common-sub-p">We pay back-->
-      <!--          our moms.</p>-->
-      <!--      </div>-->
-      <!--    </div>-->
-      <!--    <div class="mb-3 mb-lg-1 row">-->
-      <!--      <div class="m-auto col-lg-1 col-2 offset-lg-1 offset-1">-->
-      <!--        <p class="goal">20%</p>-->
-      <!--      </div>-->
-      <!--      <div class="m-auto col-lg-10 col-9">-->
-      <!--        <p class="text-decoration-line-through common-sub-p">We release-->
-      <!--          the Caged Apes. 5 Caged Apes (tokens held back from the-->
-      <!--          sale) are airdropped to random Apeholders.</p>-->
-      <!--      </div>-->
-      <!--    </div>-->
-      <!--    <div class="mb-3 mb-lg-1 row">-->
-      <!--      <div class="m-auto col-lg-1 col-2 offset-lg-1 offset-1">-->
-      <!--        <p class="goal">40%</p>-->
-      <!--      </div>-->
-      <!--      <div class="m-auto col-lg-10 col-9">-->
-      <!--        <p class="text-decoration-line-through common-sub-p">BAYC gets-->
-      <!--          its own YouTube channel, BAYC LoFi Radio - Beats to Ape into-->
-      <!--          Shitcoins To.</p>-->
-      <!--      </div>-->
-      <!--    </div>-->
-      <!--    <div class="mb-3 mb-lg-1 row">-->
-      <!--      <div class="m-auto col-lg-1 col-2 offset-lg-1 offset-1">-->
-      <!--        <p class="goal">60%</p>-->
-      <!--      </div>-->
-      <!--      <div class="m-auto col-lg-10 col-9">-->
-      <!--        <p class="text-decoration-line-through common-sub-p">-->
-      <!--          Member-Exclusive BAYC Merch Store gets unlocked, featuring-->
-      <!--          Limited Edition tees, hoodies, and other goodies.</p>-->
-      <!--      </div>-->
-      <!--    </div>-->
-      <!--    <div class="mb-3 mb-lg-1 row">-->
-      <!--      <div class="m-auto col-lg-1 col-2 offset-lg-1 offset-1">-->
-      <!--        <p class="goal">80%</p>-->
-      <!--      </div>-->
-      <!--      <div class="m-auto col-lg-10 col-9">-->
-      <!--        <p class=" common-sub-p">The clubhouse image becomes interactive-->
-      <!--          and the Mysterious Note becomes legible, beginning a-->
-      <!--          treasure hunt. The first to solve the mystery will be-->
-      <!--          rewarded 5 ETH and a Bored Ape.</p>-->
-      <!--      </div>-->
-      <!--    </div>-->
-      <!--    <div class="mb-3 mb-lg-1 row">-->
-      <!--      <div class="m-auto col-lg-1 col-2 offset-lg-1 offset-1">-->
-      <!--        <p class="goal">90%</p>-->
-      <!--      </div>-->
-      <!--      <div class="m-auto col-lg-10 col-9">-->
-      <!--        <p class="text-decoration-line-through common-sub-p">The Bored-->
-      <!--          Ape liquidity pool is initiated.</p>-->
-      <!--      </div>-->
-      <!--    </div>-->
-      <!--    <div class="row">-->
-      <!--      <div class="m-auto col-lg-1 col-2 offset-lg-1 offset-1">-->
-      <!--        <p class="goal">100%</p>-->
-      <!--      </div>-->
-      <!--      <div class="m-auto col-lg-10 col-9">-->
-      <!--        <p class="text-decoration-line-through common-sub-p">The Mutant-->
-      <!--          Ape (NFT Breeding) Arcade Machine gets ﬁxed. And we cook up-->
-      <!--          new ways to ape with our friends.</p>-->
-      <!--      </div>-->
-      <!--    </div>-->
     </div>
   </div>
 </app-section>

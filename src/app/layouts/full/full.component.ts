@@ -12,7 +12,6 @@ import { ScrollService } from "../../shared/services/scroll/scroll.service";
 import { DialogDataExampleDialogComponent } from "../abstract-navbar.component";
 import { MatDialog } from "@angular/material/dialog";
 
-/** @title Responsive sidenav */
 @Component({
   selector: 'app-full-layout',
   templateUrl: 'full.component.html',

@@ -9,3 +9,7 @@
 ::ng-deep .mat-stepper-vertical {
   background-color: transparent;
 }
+
+:host .complete {
+  //text-transform: strikethrough;
+}
