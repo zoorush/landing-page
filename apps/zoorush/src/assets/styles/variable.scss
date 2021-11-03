@@ -45,7 +45,7 @@ $dark-theme-background-palette: (
   background: $mat-dark-theme-background,
   hover: rgba(white, 0.04),
   card: map.get(mat-palette($mat-grey, 800), 800),
-  dialog: map.get(mat-palette($mat-deep-orange, 800), 800),
+  dialog: map.get(mat-palette($mat-grey, 800), 800),
   disabled-button: rgba(white, 0.12),
   raised-button: map.get(mat-palette($mat-grey, 800), 800),
   focused-button: $light-focused,
