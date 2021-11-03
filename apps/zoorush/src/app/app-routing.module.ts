@@ -1,6 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
 
 const routerOptions: ExtraOptions = {
   scrollPositionRestoration: 'enabled',
@@ -8,7 +8,13 @@ const routerOptions: ExtraOptions = {
   scrollOffset: [0, 64],
 };
 
-const routes: Routes = [];
+const routes: Routes = [
+      {
+        path: 'mini-game',
+        loadChildren: () =>
+          import('./mini-game/mini-game.module').then((m) => m.MiniGameModule),
+      },
+];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(routes, routerOptions)],

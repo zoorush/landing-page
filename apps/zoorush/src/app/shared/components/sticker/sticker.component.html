@@ -2,14 +2,14 @@
   class="nft-card oh text-center little-profile show-text-on-hover"
   tabindex="-1">
   <img
-    mat-card-image
-    [src]="'assets/images/' + person.image"
     [alt]="person.imageAlt"
-    class="rounded-sm" />
+    [src]="'assets/images/' + person.image"
+    class="rounded-sm"
+    mat-card-image />
   <mat-card-content
+    class="justify-content-center align-items-center"
     fxFlexFill
-    fxLayout="row"
-    class="justify-content-center align-items-center">
+    fxLayout="row">
     <div style="height: fit-content; flex: 1">
       <h2 class="m-b-0 mt-auto">{{ person.description }}</h2>
       <h4 class="m-t-0 mb-auto">{{ person.details }}</h4>

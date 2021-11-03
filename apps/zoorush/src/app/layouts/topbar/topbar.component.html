@@ -4,32 +4,32 @@
 <ng-container *ngFor="let menuitem of menuItems.getMenuitem()">
   <ng-container [ngSwitch]="menuitem.enabled">
     <a
-      mat-button
-      color="accent"
       (click)="openDialog(menuitem)"
       *ngSwitchDefault
-      class="m-r-10">
+      class="m-r-10"
+      color="accent"
+      mat-button>
       <span>{{ menuitem.name }}</span>
       <span fxFlex></span>
       <span
-        class="label label-{{ badge.type }}"
         *ngFor="let badge of menuitem.badge"
-        >{{ badge.value }}</span
+        class="label label-{{ badge.type }}"
+      >{{ badge.value }}</span
       >
     </a>
 
     <a
-      mat-button
-      color="accent"
       *ngSwitchCase="true"
+      [href]="'/home#' + menuitem.state"
       class="m-r-10"
-      [href]="'/home#' + menuitem.state">
+      color="accent"
+      mat-button>
       <span>{{ menuitem.name }}</span>
       <span fxFlex></span>
       <span
-        class="label label-{{ badge.type }}"
         *ngFor="let badge of menuitem.badge"
-        >{{ badge.value }}</span
+        class="label label-{{ badge.type }}"
+      >{{ badge.value }}</span
       >
     </a>
   </ng-container>

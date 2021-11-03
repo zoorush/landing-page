@@ -1,53 +1,53 @@
 <!-- ============================================================== -->
 <!-- sidebar -->
 <!-- ============================================================== -->
-<mat-nav-list fxLayout="column" class="p-2 mt-5">
+<mat-nav-list class="p-2 mt-5" fxLayout="column">
   <ng-container *ngFor="let menuitem of menuItems.getMenuitem()">
     <ng-container [ngSwitch]="menuitem.enabled">
       <a
-        fxFlex="100"
-        mat-flat-button
-        color="accent"
+        (click)="openDialog(menuitem)"
         *ngSwitchDefault
-        (click)="openDialog(menuitem)">
+        color="accent"
+        fxFlex="100"
+        mat-flat-button>
         <span>{{ menuitem.name }}</span>
         <span fxFlex></span>
         <span
-          class="label label-{{ badge.type }}"
           *ngFor="let badge of menuitem.badge"
-          >{{ badge.value }}</span
+          class="label label-{{ badge.type }}"
+        >{{ badge.value }}</span
         >
       </a>
 
       <a
-        fxFlex="100"
-        mat-flat-button
-        color="accent"
+        (click)="toggle()"
         *ngSwitchCase="true"
         [href]="'/home#' + menuitem.state"
-        (click)="toggle()">
+        color="accent"
+        fxFlex="100"
+        mat-flat-button>
         <span>{{ menuitem.name }}</span>
         <span fxFlex></span>
         <span
-          class="label label-{{ badge.type }}"
           *ngFor="let badge of menuitem.badge"
-          >{{ badge.value }}</span
+          class="label label-{{ badge.type }}"
+        >{{ badge.value }}</span
         >
       </a>
     </ng-container>
   </ng-container>
 
   <button
-    fxFlex="100"
-    mat-flat-button
-    class="mt-2"
-    fxHide="false"
-    fxHide.gt-xs
-    mat-button
     (click)="
       openDialog({ state: '', name: '', type: 'anchor', enabled: false })
     "
-    color="accent">
+    class="mt-2"
+    color="accent"
+    fxFlex="100"
+    fxHide="false"
+    fxHide.gt-xs
+    mat-button
+    mat-flat-button>
     Connect Wallet
   </button>
 </mat-nav-list>

@@ -8,6 +8,7 @@
       "strict": true
     }
   },
+  "defaultProject": "zoorush",
   "projects": {
     "zoorush": {
       "projectType": "application",
@@ -34,7 +35,8 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "node_modules"
+                "node_modules",
+                "apps/zoorush/src/assets"
               ]
             },
             "scripts": [],

@@ -1,12 +1,12 @@
 <ng-container [ngSwitch]="data.menuItem.state">
-  <h1 class="my-0 p-3" mat-dialog-title *ngSwitchCase="'new-player'">
+  <h1 *ngSwitchCase="'new-player'" class="my-0 p-3" mat-dialog-title>
     Coming Soon!
   </h1>
-  <h1 class="my-0 p-3" mat-dialog-title *ngSwitchCase="'game'">
+  <h1 *ngSwitchCase="'game'" class="my-0 p-3" mat-dialog-title>
     Mini MVP game dropping first week of November
   </h1>
-  <h1 class="my-0 p-3" mat-dialog-title *ngSwitchCase="'lounge'">
+  <h1 *ngSwitchCase="'lounge'" class="my-0 p-3" mat-dialog-title>
     Coming Soon!
   </h1>
-  <h1 class="my-0 p-3" mat-dialog-title *ngSwitchDefault>Coming Soon!</h1>
+  <h1 *ngSwitchDefault class="my-0 p-3" mat-dialog-title>Coming Soon!</h1>
 </ng-container>

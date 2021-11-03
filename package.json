@@ -4,6 +4,7 @@
   "scripts": {
     "postinstall": "node ./decorate-angular-cli.js && ngcc",
     "ng": "nx",
+    "nx": "nx",
     "start": "ng serve",
     "build": "ng build",
     "build:ci": "ng build --configuration production",
@@ -16,7 +17,6 @@
     "format:check": "nx format:check",
     "format:write": "nx format:write",
     "prepare": "husky install",
-    "nx": "nx",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",

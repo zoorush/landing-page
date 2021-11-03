@@ -17,6 +17,7 @@ import {
 } from '@angular/fire/compat/analytics';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -28,12 +29,11 @@ import {
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
 import { faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layouts/layout.module';
 import { SharedModule } from './shared/shared.module';
-import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [

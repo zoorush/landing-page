@@ -5,10 +5,10 @@
     <app-divider></app-divider>
     <app-section [id]="'big-art'" class="my-3">
       <app-fade-in direction="up">
-        <div fxLayout="row wrap" class="justify-content-center">
+        <div class="justify-content-center" fxLayout="row wrap">
           <img
-            class="rounded-pill col-lg-7 col-sm-10 col-10"
             [src]="'/assets/images/gifs/big.gif'"
+            class="rounded-pill col-lg-7 col-sm-10 col-10"
             srcset="
               /assets/images/gifs/big.gif    1000w,
               /assets/images/gifs/medium.gif  500w
@@ -31,10 +31,10 @@
       </app-fade-in>
     </app-section>
 
-    <app-fade-in direction="right" class="make-center">
-      <button mat-flat-button color="primary" class="col-8 my-3 p-4">
+    <app-fade-in class="make-center" direction="right">
+      <button class="col-8 my-3 p-4" color="primary" mat-flat-button>
         <span style="font-size: 2rem"
-          >MINT <br />
+        >MINT <br />
           Coming Soon! <br />
           November</span
         >

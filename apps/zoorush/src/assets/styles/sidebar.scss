@@ -13,10 +13,13 @@ mat-sidenav {
   width: 240px;
   padding-top: 0;
 }
+
 #snav {
   box-shadow: 1px 0 20px rgba(0, 0, 0, 0.08);
+
   .mat-list-item {
     height: auto;
+
     &:hover {
       background: none;
     }
@@ -24,8 +27,10 @@ mat-sidenav {
     .mat-list-item-content {
       display: block;
       padding: 0 15px;
+
       &:hover {
         background: none;
+
         > a {
           color: $themecolor;
         }
@@ -41,12 +46,15 @@ mat-sidenav {
       font-size: 15px;
       white-space: nowrap;
       color: $dark-text;
+
       mat-icon:not(.dd-icon) {
         margin-right: 8px;
       }
+
       mat-icon {
         color: $dark-text;
       }
+
       .dd-icon {
         font-size: 16px;
         width: 16px;
@@ -55,6 +63,7 @@ mat-sidenav {
         height: 16px;
       }
     }
+
     &.selected > .mat-list-item-content > a {
       background: $themecolor-alt;
       border-radius: $radius;
@@ -63,11 +72,13 @@ mat-sidenav {
       mat-icon {
         color: $white;
       }
+
       .dd-icon {
         -webkit-transform: rotate(-180deg);
         transform: rotate(-180deg);
       }
     }
+
     &.selected .sub-item .mat-list-item-content a.selected {
       background: transparent;
       color: $inverse;
@@ -75,6 +86,7 @@ mat-sidenav {
     }
   }
 }
+
 /*******************
 use profile section
 ******************/
@@ -88,6 +100,7 @@ use profile section
     margin-left: 30px;
     padding: 31px 0;
     border-radius: 100%;
+
     &::before {
       -webkit-animation: 2.5s blow 0s linear infinite;
       animation: 2.5s blow 0s linear infinite;
@@ -100,6 +113,7 @@ use profile section
       border-radius: 50%;
       z-index: 0;
     }
+
     @-webkit-keyframes blow {
       0% {
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
@@ -140,16 +154,19 @@ use profile section
         transform: scale3d(1, 1, 0.5);
       }
     }
+
     img {
       width: 100%;
       border-radius: 100%;
     }
   }
+
   .profile-text {
     padding: 5px 0;
     position: relative;
     cursor: pointer;
     white-space: nowrap;
+
     > a {
       color: $white !important;
       width: 100%;
@@ -157,6 +174,7 @@ use profile section
       background: rgba(0, 0, 0, 0.5);
       display: block;
       white-space: nowrap;
+
       &:after {
         position: absolute;
         right: 20px;

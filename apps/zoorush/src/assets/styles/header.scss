@@ -10,18 +10,23 @@ File: scss
 *******************/
 mat-toolbar {
   box-shadow: 1px 0 10px rgba(0, 0, 0, 0.5);
+
   &.topbar {
     padding: 0 15px;
   }
+
   .navbar-header {
     text-align: center;
+
     .navbar-brand {
       display: flex;
       line-height: 18px;
       align-items: center;
+
       .dark-logo {
         display: none;
       }
+
       b {
         margin-right: 5px;
       }
@@ -34,6 +39,7 @@ mat-toolbar {
     border-radius: 100%;
   }
 }
+
 /*******************
  Topbar
 *******************/

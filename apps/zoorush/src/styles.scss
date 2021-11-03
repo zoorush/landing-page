@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 // Your variable overrides
-@import './assets/variables';
+@import 'variables';
 
 // Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap';
@@ -3480,7 +3480,7 @@ body {
 
 .text-monospace {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace !important;
+  'Courier New', monospace !important;
 }
 
 .text-justify {

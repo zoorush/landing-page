@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { HeroComponent } from './hero/hero.component';
-import { HomeComponent } from './home.component';
-import { HomeRoutingModule } from './home-routing.module';
-import { NftsComponent } from './nfts/nfts.component';
-import { SharedModule } from '../shared/shared.module';
-import { SectionComponent } from './section/section.component';
-import { RoadmapComponent } from './roadmap/roadmap.component';
-import { MatButtonModule } from '@angular/material/button';
-import { TeamComponent } from './team/team.component';
 import { MatStepperModule } from '@angular/material/stepper';
+import { SharedModule } from '../shared/shared.module';
+import { HeroComponent } from './hero/hero.component';
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
+import { NftsComponent } from './nfts/nfts.component';
+import { RoadmapComponent } from './roadmap/roadmap.component';
+import { SectionComponent } from './section/section.component';
+import { TeamComponent } from './team/team.component';
 
 @NgModule({
   imports: [

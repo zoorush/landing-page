@@ -6,12 +6,12 @@ import {
   ElementRef,
   OnDestroy,
 } from '@angular/core';
-import { Menu, MenuItems } from '../../shared/services/menu-items/menu-items';
+import { MatDialog } from '@angular/material/dialog';
 import { fromEvent, Observable, of } from 'rxjs';
-import { map, share, tap, throttleTime } from 'rxjs/operators';
+import { map, throttleTime } from 'rxjs/operators';
+import { Menu, MenuItems } from '../../shared/services/menu-items/menu-items';
 import { ScrollService } from '../../shared/services/scroll/scroll.service';
 import { DialogDataExampleDialogComponent } from '../abstract-navbar.component';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-full-layout',

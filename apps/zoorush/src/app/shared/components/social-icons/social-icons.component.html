@@ -1,8 +1,8 @@
 <a
-  mat-icon-button
-  color="accent"
-  class="m-r-10"
   *ngFor="let icon of socialIcons"
-  [href]="icon.link">
+  [href]="icon.link"
+  class="m-r-10"
+  color="accent"
+  mat-icon-button>
   <fa-icon [icon]="icon.icon"></fa-icon>
 </a>

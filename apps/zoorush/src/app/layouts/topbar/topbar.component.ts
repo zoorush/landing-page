@@ -1,9 +1,9 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
-import { MenuItems } from '../../shared/services/menu-items/menu-items';
-import { AbstractNavbarComponent } from '../abstract-navbar.component';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { MenuItems } from '../../shared/services/menu-items/menu-items';
+import { AbstractNavbarComponent } from '../abstract-navbar.component';
 
 @Component({
   selector: 'app-topbar',

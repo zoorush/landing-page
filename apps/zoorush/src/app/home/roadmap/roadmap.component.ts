@@ -1,6 +1,6 @@
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Component } from '@angular/core';
 import { roadMapId } from '../../shared/services/menu-items/menu-items';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 interface Stage {
   id: string;

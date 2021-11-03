@@ -1,3 +1,4 @@
+import { MediaMatcher } from '@angular/cdk/layout';
 import {
   ChangeDetectorRef,
   Component,
@@ -5,10 +6,9 @@ import {
   Inject,
   OnDestroy,
 } from '@angular/core';
-import { MediaMatcher } from '@angular/cdk/layout';
-import { Menu, MenuItems } from '../shared/services/menu-items/menu-items';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Menu, MenuItems } from '../shared/services/menu-items/menu-items';
 
 export interface DialogData {
   menuItem: Menu;

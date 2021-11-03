@@ -1,19 +1,19 @@
-<app-section [title]="'ROADMAP'" [id]="id">
+<app-section [id]="id" [title]="'ROADMAP'">
   <div class="mb-3 text-center col-12">
-    <app-fade-in direction="left" delay="500" fxLayout="row">
-      <p fxFlex="100" class="common-p">ZooRush Football League</p>
+    <app-fade-in delay="500" direction="left" fxLayout="row">
+      <p class="common-p" fxFlex="100">ZooRush Football League</p>
     </app-fade-in>
   </div>
   <div class="px-lg-5 px-0">
     <div class="mb-3 mb-md-0 px-lg-5 px-0 col-12">
       <app-fade-in
-        direction="right"
+        *ngFor="let stage of stages; trackBy: trackById; index as i"
         delay="1000"
-        *ngFor="let stage of stages; trackBy: trackById; index as i">
-        <mat-stepper orientation="vertical" fxFlex="100">
+        direction="right">
+        <mat-stepper fxFlex="100" orientation="vertical">
           <mat-step [completed]="true" state="">
             <ng-template matStepLabel
-              ><h2 class="m-0">Stage {{ i }}</h2></ng-template
+            ><h2 class="m-0">Stage {{ i }}</h2></ng-template
             >
             <ng-template matStepContent>
               <p
