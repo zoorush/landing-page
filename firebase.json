@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "zoorush",
-      "public": "dist/zoorush",
+      "public": "dist/apps/zoorush",
       "ignore": [
         "firebase.json",
         "**/.*",

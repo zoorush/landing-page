@@ -1,0 +1,35 @@
+.full-content {
+  max-width: 1280px;
+  max-height: 1440px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.top-container {
+  min-width: 85%;
+  width: 85%;
+  max-height: 40px;
+}
+
+.top-container ::ng-deep a:last-of-type:not(:first-of-type) {
+  margin: 0;
+}
+
+.frame-wrapper {
+  height: 80%;
+  min-height: 80%;
+  min-width: 85%;
+  width: 85%;
+}
+
+.square {
+  height: 40px;
+  width: 40px;
+}
+
+.constant-size {
+  height: 100vh;
+  overflow-y: auto;
+  width: 100vw;
+}

@@ -1,0 +1,11 @@
+<app-section [id]="id" [title]="'BECOME A PLAYER'">
+  <div class="justify-content-center" fxFlex="100" fxLayout="wrap column">
+    <app-fade-in
+      *ngFor="let nft of nfts; index as i"
+      [delay]="100 * (i % 3)"
+      class="col-lg-4 col-sm-6 col-xs-12 col-12"
+      direction="up">
+      <app-sticker [person]="nft"></app-sticker>
+    </app-fade-in>
+  </div>
+</app-section>

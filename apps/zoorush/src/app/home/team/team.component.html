@@ -1,0 +1,42 @@
+<div class="justify-content-center" fxLayout="row wrap">
+  <div
+    *ngFor="let member of members; index as i"
+    fxFlex="100"
+    fxFlex.gt-md="25"
+    fxFlex.gt-sm="33"
+    fxFlex.gt-xs="50"
+    fxLayout="column">
+    <app-fade-in
+      [delay]="100 * (i % 3)"
+      direction="up"
+      fxFlex="100"
+      fxLayout="column">
+      <mat-card
+        class="oh text-center little-profile"
+        fxFlex="100"
+        fxLayout="column">
+        <mat-card-content class="h-100" fxFlex="100" fxLayout="column">
+          <div class="pro-img">
+            <img
+              [src]="'/assets/images/nfts/' + member.image"
+              alt="user"
+              class="img-circle"
+              width="200" />
+          </div>
+          <div class="member-description" fxFlex="100" fxLayout="column">
+            <h3 class="my-0 pb-2 h-22 member-name">{{ member.name }}</h3>
+            <h5 class="my-0 pb-3 h-22 member-pretitle">
+              <ng-container *ngIf="member.pretitle">{{
+                member.pretitle
+                }}</ng-container>
+            </h5>
+            <h4 class="my-0 pb-5 h-22 member-title f-medium">
+              {{ member.title }}
+            </h4>
+            <i class="h-34 member-quote f-small">"{{ member.quote }}"</i>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </app-fade-in>
+  </div>
+</div>

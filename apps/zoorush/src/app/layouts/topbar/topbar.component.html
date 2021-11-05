@@ -1,0 +1,36 @@
+<!-- ============================================================== -->
+<!-- topbar -->
+<!-- ============================================================== -->
+<ng-container *ngFor="let menuitem of menuItems.getMenuitem()">
+  <ng-container [ngSwitch]="menuitem.enabled">
+    <a
+      (click)="openDialog(menuitem)"
+      *ngSwitchDefault
+      class="m-r-10"
+      color="accent"
+      mat-button>
+      <span>{{ menuitem.name }}</span>
+      <span fxFlex></span>
+      <span
+        *ngFor="let badge of menuitem.badge"
+        class="label label-{{ badge.type }}"
+      >{{ badge.value }}</span
+      >
+    </a>
+
+    <a
+      *ngSwitchCase="true"
+      [href]="'/home#' + menuitem.state"
+      class="m-r-10"
+      color="accent"
+      mat-button>
+      <span>{{ menuitem.name }}</span>
+      <span fxFlex></span>
+      <span
+        *ngFor="let badge of menuitem.badge"
+        class="label label-{{ badge.type }}"
+      >{{ badge.value }}</span
+      >
+    </a>
+  </ng-container>
+</ng-container>

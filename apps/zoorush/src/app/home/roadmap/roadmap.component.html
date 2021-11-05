@@ -1,0 +1,30 @@
+<app-section [id]="id" [title]="'ROADMAP'">
+  <div class="mb-3 text-center col-12">
+    <app-fade-in delay="500" direction="left" fxLayout="row">
+      <p class="common-p" fxFlex="100">ZooRush Football League</p>
+    </app-fade-in>
+  </div>
+  <div class="px-lg-5 px-0">
+    <div class="mb-3 mb-md-0 px-lg-5 px-0 col-12">
+      <app-fade-in
+        *ngFor="let stage of stages; trackBy: trackById; index as i"
+        delay="1000"
+        direction="right">
+        <mat-stepper fxFlex="100" orientation="vertical">
+          <mat-step [completed]="true" state="">
+            <ng-template matStepLabel
+            ><h2 class="m-0">Stage {{ i }}</h2></ng-template
+            >
+            <ng-template matStepContent>
+              <p
+                *ngFor="let line of stage.lines"
+                [ngClass]="{ complete: line.completed }">
+                {{ line.text }}
+              </p>
+            </ng-template>
+          </mat-step>
+        </mat-stepper>
+      </app-fade-in>
+    </div>
+  </div>
+</app-section>

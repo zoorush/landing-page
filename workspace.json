@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    },
+    "@schematics/angular:application": {
+      "strict": true
+    }
+  },
+  "defaultProject": "zoorush",
+  "projects": {
+    "zoorush": {
+      "projectType": "application",
+      "root": "apps/zoorush",
+      "sourceRoot": "apps/zoorush/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/zoorush",
+            "index": "apps/zoorush/src/index.html",
+            "main": "apps/zoorush/src/main.ts",
+            "polyfills": "apps/zoorush/src/polyfills.ts",
+            "tsConfig": "apps/zoorush/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/zoorush/src/favicon.ico",
+              "apps/zoorush/src/assets"
+            ],
+            "styles": [
+              "apps/zoorush/src/assets/styles/style.scss",
+              "apps/zoorush/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules",
+                "apps/zoorush/src/assets"
+              ]
+            },
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true,
+            "preserveSymlinks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/zoorush/src/environments/environment.ts",
+                  "with": "apps/zoorush/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "development": {}
+          },
+          "defaultConfiguration": ""
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "zoorush:build:production"
+            },
+            "development": {
+              "browserTarget": "zoorush:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "zoorush:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/zoorush/src/test.ts",
+            "polyfills": "apps/zoorush/src/polyfills.ts",
+            "tsConfig": "apps/zoorush/tsconfig.spec.json",
+            "karmaConfig": "apps/zoorush/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/zoorush/src/favicon.ico",
+              "apps/zoorush/src/assets"
+            ],
+            "styles": [
+              "apps/zoorush/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "./**/*.ts",
+              "./**/*.html"
+            ],
+            "tsConfig": [
+              "apps/zoorush/tsconfig.app.json",
+              "apps/zoorush/tsconfig.spec.json"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
