@@ -24,15 +24,15 @@
         <div class="spinner"></div>
       </div>
     </div>
-    <div id="unity-fullscreen-button"><i class="fas fa-expand-alt"></i></div>
+    <div id="unity-fullscreen-button" style="display: none;"><i class="fas fa-expand-alt"></i></div>
     <script>
-      const hideFullScreenButton = "1";
+      const hideFullScreenButton = "0";
       const buildUrl = "/assets/game/Build";
-      const loaderUrl = buildUrl + "/FullscreenHiddenJoyStick.loader.js";
+      const loaderUrl = buildUrl + "/BuildWithJoyStick.loader.js";
       const config = {
-        dataUrl: buildUrl + "/FullscreenHiddenJoyStick.data",
-        frameworkUrl: buildUrl + "/FullscreenHiddenJoyStick.framework.js",
-        codeUrl: buildUrl + "/FullscreenHiddenJoyStick.wasm",
+        dataUrl: buildUrl + "/BuildWithJoyStick.data",
+        frameworkUrl: buildUrl + "/BuildWithJoyStick.framework.js",
+        codeUrl: buildUrl + "/BuildWithJoyStick.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "ZooRushNFT",
         productName: "FootBall",
@@ -66,6 +66,7 @@
         container.className = "unity-mobile";
         config.devicePixelRatio = 1;
       }
+      // canvas.style.background = "url('" + buildUrl + "/') center / cover";
       loadingCover.style.display = "";
 
       const script = document.createElement("script");
