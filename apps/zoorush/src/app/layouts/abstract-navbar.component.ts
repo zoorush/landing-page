@@ -33,12 +33,15 @@ export abstract class AbstractNavbarComponent implements OnDestroy {
   }
 
   openDialog(menuItem: Menu) {
-    if (menuItem.state !== 'team' && menuItem.state !== 'roadmap') {
+    if (menuItem.state !== 'team' && menuItem.state !== 'roadmap' && menuItem.state !== 'game') {
       this.dialog.open(DialogDataExampleDialogComponent, {
         data: {
           menuItem,
         },
       });
+    }
+    else if (menuItem.state === 'game') {
+      this.router.navigate(['/mini-game']);
     }
   }
 
