@@ -146,6 +146,7 @@ export class MiniGameComponent extends AbstractNavbarComponent {
     const dialogRef = this.dialog.open(MiniGameAliasDialogComponent, {
       data: {
         alias: this.getAlias(),
+        wallet: this.connectedWallet$
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
