@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { from, Observable, of, throwError } from "rxjs";
+import { from, Observable, of, throwError } from 'rxjs';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import Web3 from 'web3';
 import { WEB3 } from './tokens';
@@ -7,7 +7,10 @@ import { WEB3 } from './tokens';
 type AccountChangedCallback = (provider: any, accounts: string[]) => void;
 type ChainChangedCallback = (provider: any, chainId: number) => void;
 type ConnectedCallback = (provider: any, info: { chainId: number }) => void;
-type DisconnectedCallback = (provider: any, error: { code: number; message: string }) => void;
+type DisconnectedCallback = (
+  provider: any,
+  error: { code: number; message: string }
+) => void;
 const noop = () => {};
 
 export interface EthereumHooks {
@@ -46,16 +49,26 @@ export class AccountsService {
           method: 'eth_requestAccounts',
         }) as Promise<string[]>
       ).pipe(
-        catchError(err => ([])),
+        catchError((err) => []),
         mergeMap((accounts: string[]) => {
-          if (Array.isArray(accounts) && accounts.length > 0 && typeof accounts[0] === 'string') {
+          if (
+            Array.isArray(accounts) &&
+            accounts.length > 0 &&
+            typeof accounts[0] === 'string'
+          ) {
             (this.web3?.currentProvider as any).on(
               'accountsChanged',
-              this.handleAccountChanges(this.web3?.currentProvider, onAccountChanges)
+              this.handleAccountChanges(
+                this.web3?.currentProvider,
+                onAccountChanges
+              )
             );
             (this.web3?.currentProvider as any).on(
               'chainChanged',
-              this.handleChainChanges(this.web3?.currentProvider, onChainChanges)
+              this.handleChainChanges(
+                this.web3?.currentProvider,
+                onChainChanges
+              )
             );
             (this.web3?.currentProvider as any).on(
               'connect',
@@ -69,7 +82,7 @@ export class AccountsService {
               (this.web3?.currentProvider as any).request({
                 method: 'eth_accounts',
               }) as Promise<string[]>
-            );
+            ).pipe(map((accounts) => accounts.map((acc) => acc.toLowerCase())));
           } else {
             return throwError(new Error('No Accounts Returned.'));
           }
@@ -92,7 +105,7 @@ export class AccountsService {
             (account: string) =>
               this.web3 && (this.web3.eth.defaultAccount = account)
           ),
-          catchError((err: Error) => of(err)),
+          catchError((err: Error) => of(err))
         );
       }
     } else {
@@ -100,27 +113,32 @@ export class AccountsService {
     }
   }
 
-  handleAccountChanges = (provider: any, cb: AccountChangedCallback) => (accounts: string[]) => {
-    console.log(accounts);
-    if (accounts.length === 0) {
-      // MetaMask is locked or the user has not connected any accounts
-      console.log('Please connect to MetaMask.');
-    }
-    cb(provider, accounts);
-  };
+  handleAccountChanges =
+    (provider: any, cb: AccountChangedCallback) => (accounts: string[]) => {
+      console.log(accounts);
+      if (accounts.length === 0) {
+        // MetaMask is locked or the user has not connected any accounts
+        console.log('Please connect to MetaMask.');
+      }
+      cb(provider, accounts?.map((acc) => acc.toLowerCase()));
+    };
 
-  handleChainChanges = (provider: any, cb: ChainChangedCallback) => (chainId: number) => {
-    console.log(chainId);
-    cb(provider, chainId);
-  };
+  handleChainChanges =
+    (provider: any, cb: ChainChangedCallback) => (chainId: number) => {
+      console.log(chainId);
+      cb(provider, chainId);
+    };
 
-  handleConnect = (provider: any, cb: ConnectedCallback) => (info: { chainId: number }) => {
-    console.log(info);
-    cb(provider, info);
-  };
+  handleConnect =
+    (provider: any, cb: ConnectedCallback) => (info: { chainId: number }) => {
+      console.log(info);
+      cb(provider, info);
+    };
 
-  handleDisconnect = (provider: any, cb: DisconnectedCallback) => (error: { code: number; message: string }) => {
-    console.log(error);
-    cb(provider, error);
-  };
+  handleDisconnect =
+    (provider: any, cb: DisconnectedCallback) =>
+    (error: { code: number; message: string }) => {
+      console.log(error);
+      cb(provider, error);
+    };
 }

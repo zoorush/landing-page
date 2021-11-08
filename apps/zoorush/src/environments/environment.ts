@@ -7,6 +7,7 @@ export const environment = {
   firebase: {
     apiKey: 'AIzaSyBotI6K20qNNnESbsri7i29fUi6pefi0KM',
     authDomain: 'zoorush-e8351.firebaseapp.com',
+    databaseURL: 'https://zoorush-e8351-default-rtdb.europe-west1.firebasedatabase.app',
     projectId: 'zoorush-e8351',
     storageBucket: 'zoorush-e8351.appspot.com',
     messagingSenderId: '1093738086768',

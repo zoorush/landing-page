@@ -15,6 +15,7 @@ import {
   ScreenTrackingService,
   UserTrackingService,
 } from '@angular/fire/compat/analytics';
+import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -52,6 +53,7 @@ import { SharedModule } from './shared/shared.module';
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
+    AngularFireDatabaseModule,
     CommonModule,
     MatDialogModule,
   ],
