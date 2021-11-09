@@ -1,5 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component } from "@angular/core";
 import { get, getDatabase, onValue, ref, set } from '@angular/fire/database';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -34,7 +34,7 @@ const miniGameWalletAlias = 'zoo-rush-mini-game::wallet-alias';
   templateUrl: './mini-game.component.html',
   styleUrls: ['./mini-game.component.scss'],
 })
-export class MiniGameComponent extends AbstractNavbarComponent {
+export class MiniGameComponent extends AbstractNavbarComponent implements AfterViewInit {
   alias$: BehaviorSubject<string>;
   homeIcon = faHome;
   walletIcon = faWallet;
@@ -160,5 +160,9 @@ export class MiniGameComponent extends AbstractNavbarComponent {
   setAlias(alias: string) {
     localStorage.setItem(miniGameWalletAlias, alias);
     this.alias$.next(alias);
+  }
+
+  ngAfterViewInit(): void {
+    this.connectWallet();
   }
 }

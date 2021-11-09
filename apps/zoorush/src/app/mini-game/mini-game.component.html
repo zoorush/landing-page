@@ -32,7 +32,12 @@
       </div>
 
       <div class="frame-wrapper" fxLayout="column">
-          <ng-container *ngTemplateOutlet="info"></ng-container>
+        <strong>
+          <i class="stylised-text">
+            Connect your wallet to enter into the Prize Competition. Details in <a href="https://discord.gg/Ar5NKGHY">Discord</a>.
+          </i>
+        </strong>
+        <ng-container *ngTemplateOutlet="info"></ng-container>
         <iframe
           allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad"
           allowfullscreen="true"
@@ -81,9 +86,9 @@
        [ngSwitch]="((connectedWallet$ | async)?.length ?? 0) > 0">
         <span *ngSwitchCase="true" class="font-emphasis">
           <ng-container *ngIf="alias$ | async as alias">Registered User: {{alias}}</ng-container>
-          <br/>
+          <br />
           Wallet Address: {{connectedWallet$ | async}}
-          <br/>
+          <br />
           Highscore: {{highscore$ | async}}
         </span>
     <span *ngSwitchDefault>
