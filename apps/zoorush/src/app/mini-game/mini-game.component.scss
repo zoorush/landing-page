@@ -1,3 +1,5 @@
+@import 'variables';
+
 .full-content {
   max-width: 1280px;
   max-height: 1440px;
@@ -32,4 +34,29 @@
   height: 100vh;
   overflow-y: auto;
   width: 100vw;
+}
+
+.font-big {
+  font-size: small;
+}
+
+.stylised-text {
+  color: $primary;
+}
+
+[show-details="true"].top-right {
+  right: 0;
+  top: -0.5rem;
+}
+
+[show-details="false"].top-right {
+  right: 0;
+  top: -0.25rem;
+}
+
+.details-bar {
+  min-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
 }

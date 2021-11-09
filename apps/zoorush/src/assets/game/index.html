@@ -1,96 +1,107 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>FootBall</title>
-    <link rel="shortcut icon" href="/assets/game/TemplateData/favicon.png">
-    <link rel="stylesheet" href="/assets/game/TemplateData/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/brands.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/solid.min.css" rel="stylesheet">
-  </head>
-  <body class="dark">
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas"></canvas>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>FootBall</title>
+  <link rel="shortcut icon" href="/assets/game/TemplateData/favicon.png">
+  <link rel="stylesheet" href="/assets/game/TemplateData/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/brands.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/solid.min.css" rel="stylesheet">
+</head>
+<body class="dark">
+<div id="unity-container" class="unity-desktop">
+  <canvas id="unity-canvas"></canvas>
+</div>
+<div id="loading-cover" style="display:none;">
+  <div id="unity-loading-bar">
+    <div id="unity-logo"><img src="/assets/game/logo.png"></div>
+    <div id="unity-progress-bar-empty" style="display: none;">
+      <div id="unity-progress-bar-full"></div>
     </div>
-    <div id="loading-cover" style="display:none;">
-      <div id="unity-loading-bar">
-        <div id="unity-logo"><img src="/assets/game/logo.png" id="zoo-rush-logo"></div>
-        <div id="unity-progress-bar-empty" style="display: none;">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-        <div class="spinner"></div>
-      </div>
-    </div>
-    <div id="unity-fullscreen-button" style="display: none;"><i class="fas fa-expand-alt"></i></div>
-    <script>
-      const hideFullScreenButton = "0";
-      const buildUrl = "/assets/game/Build";
-      const loaderUrl = buildUrl + "/BuildWithJoyStick.loader.js";
-      const config = {
-        dataUrl: buildUrl + "/BuildWithJoyStick.data",
-        frameworkUrl: buildUrl + "/BuildWithJoyStick.framework.js",
-        codeUrl: buildUrl + "/BuildWithJoyStick.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "ZooRushNFT",
-        productName: "FootBall",
-        productVersion: "1.0",
-      };
+    <div class="spinner"></div>
+  </div>
+</div>
+<div id="unity-fullscreen-button" style=""><i class="fas fa-expand-alt"></i></div>
+<script>
+  const hideFullScreenButton = "0";
+  const buildUrl = "/assets/game/Build";
+  const loaderUrl = buildUrl + "/129978d678383f70d301118a7945cf44.js";
+  const config = {
+    dataUrl: buildUrl + "/e55ca4cb1217d1f3776a51578d28a1e0.data",
+    frameworkUrl: buildUrl + "/5dcd85fcb7e3cafd26bf13d01945b4cf.js",
+    codeUrl: buildUrl + "/5efa75aedcf12fd54a7770f69e0661b2.wasm",
+    streamingAssetsUrl: "StreamingAssets",
+    companyName: "ZooRushNFT",
+    productName: "FootBall",
+    productVersion: "1.3"
+  };
 
-      const container = document.querySelector("#unity-container");
-      const canvas = document.querySelector("#unity-canvas");
-      const loadingCover = document.querySelector("#loading-cover");
-      const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
-      const progressBarFull = document.querySelector("#unity-progress-bar-full");
-      const fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      const spinner = document.querySelector('.spinner');
+  const container = document.querySelector("#unity-container");
+  const canvas = document.querySelector("#unity-canvas");
+  const loadingCover = document.querySelector("#loading-cover");
+  const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+  const progressBarFull = document.querySelector("#unity-progress-bar-full");
+  const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+  const spinner = document.querySelector(".spinner");
 
-      const canFullscreen = (function() {
-        for (const key of [
-            'exitFullscreen',
-            'webkitExitFullscreen',
-            'webkitCancelFullScreen',
-            'mozCancelFullScreen',
-            'msExitFullscreen',
-          ]) {
-          if (key in document) {
-            return true;
-          }
-        }
-        return false;
-      }());
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        config.devicePixelRatio = 1;
+  const canFullscreen = (function() {
+    for (const key of [
+      "exitFullscreen",
+      "webkitExitFullscreen",
+      "webkitCancelFullScreen",
+      "mozCancelFullScreen",
+      "msExitFullscreen"
+    ]) {
+      if (key in document) {
+        return true;
       }
-      // canvas.style.background = "url('" + buildUrl + "/') center / cover";
-      loadingCover.style.display = "";
+    }
+    return false;
+  }());
 
-      const script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          spinner.style.display = "none";
-          progressBarEmpty.style.display = "";
-          progressBarFull.style.width = `${100 * progress}%`;
-        }).then((unityInstance) => {
-          loadingCover.style.display = "none";
-          if (canFullscreen) {
-            if (!hideFullScreenButton) {
-              fullscreenButton.style.display = "";
-            }
-            fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
-            };
-          }
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-      document.body.appendChild(script);
-    </script>
-  </body>
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    container.className = "unity-mobile";
+    config.devicePixelRatio = 1;
+  }
+  loadingCover.style.display = "";
+
+  const script = document.createElement("script");
+  script.src = loaderUrl;
+  script.onload = () => {
+    createUnityInstance(canvas, config, (progress) => {
+      spinner.style.display = "none";
+      progressBarEmpty.style.display = "";
+      progressBarFull.style.width = `${100 * progress}%`;
+    }).then((unityInstance) => {
+      loadingCover.style.display = "none";
+      if (canFullscreen) {
+        if (!hideFullScreenButton) {
+          fullscreenButton.style.display = "";
+        }
+        fullscreenButton.onclick = () => {
+          unityInstance.SetFullscreen(1);
+        };
+      }
+    }).catch((message) => {
+      alert(message);
+    });
+  };
+  document.body.appendChild(script);
+</script>
+<script>
+  // Function which receives a message from Unity
+  function receiveMessageFromUnity(message) {
+    const parsedMessage = JSON.parse(message ?? "{}");
+    if (Number(parsedMessage.highscore ?? 0) >= 0) {
+      window.parent.postMessage({
+        type: "game-highscore",
+        ...parsedMessage
+      }, "*");
+    }
+  }
+</script>
+</body>
 </html>

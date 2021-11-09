@@ -16,7 +16,7 @@ export class SocialIconsComponent {
     {
       name: 'discord',
       icon: faDiscord,
-      link: 'https://discord.gg/Ar5NKGHY',
+      link: 'https://discord.gg/WrzyKxrr2B',
     },
   ];
 }

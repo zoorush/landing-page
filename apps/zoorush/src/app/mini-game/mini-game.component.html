@@ -1,34 +1,107 @@
 <div class="constant-size">
-  <div
-    class="p-2 full-content text-center justify-content-center align-items-center" fxLayout="column">
-    <div class="justify-content-between top-container pb-1" fxLayout="row wrap">
-      <h1 fxFlex.lt-sm="45" fxFlex="60" class="m-0 mb-n4 text-left text-sm-center">Mini Game</h1>
+  <ng-container
+    [ngSwitch]="!mobileQuery.matches">
+    <div
+      class="p-2 full-content text-center justify-content-center align-items-center" fxLayout="column">
 
-      <div fxFlex.lt-sm="1 1 auto" fxFlex="20" fxLayout
-           class="order-sm-first order-0 justify-content-sm-start justify-content-end">
-        <a href="/home"
-           class="m-r-10"
-           color="accent"
-           mat-icon-button>
-          <fa-icon [icon]="home"></fa-icon>
-        </a>
+      <div class="justify-content-between top-container pb-1" fxLayout="row wrap">
+        <h1 fxFlex="60" class="m-0 mb-n4 text-left text-md-center">Mini Game
+         <a mat-icon-button class="top-right" [attr.show-details]="showDetails" (click)="toggleDetails()">
+            <fa-icon [icon]="showDetails ? minimiseIcon : maximiseIcon"></fa-icon>
+          </a>
+        </h1>
+
+        <ng-container *ngSwitchCase="true">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <ng-container *ngTemplateOutlet="tools"></ng-container>
+            <ng-container *ngTemplateOutlet="social"></ng-container>
+          </mat-menu>
+        </ng-container>
+
+        <div fxFlex.lt-sm="1 1 auto" fxFlex="20" fxLayout
+             *ngSwitchCase="false"
+             class="order-md-first order-0 justify-content-md-start justify-content-end">
+          <ng-container *ngTemplateOutlet="tools"></ng-container>
+        </div>
+
+        <div fxFlex.lt-sm="0 2 auto" fxFlex="20" fxLayout
+             *ngSwitchCase="false"
+             class="pb-3 justify-content-end">
+          <ng-container *ngTemplateOutlet="social"></ng-container>
+        </div>
       </div>
 
-      <div fxFlex.lt-sm="0 2 auto" fxFlex="20" fxLayout class="pb-3 justify-content-end">
-        <app-social-icons></app-social-icons>
-      </div>
-    </div>
-    <div class="frame-wrapper">
-      <iframe
-        allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad"
-        allowfullscreen="true"
-        id="game-element"
-        name="gameFrame"
-        sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups
+      <div class="frame-wrapper" fxLayout="column">
+        <div class="relative details-bar">
+          <ng-container *ngIf="showDetails">
+            <strong>
+              <i class="stylised-text">
+                Connect your wallet to enter into the Prize Competition. Details in <a
+                href="https://discord.gg/WrzyKxrr2B">Discord</a>.
+              </i>
+            </strong>
+            <ng-container *ngTemplateOutlet="info"></ng-container>
+          </ng-container>
+
+        </div>
+        <iframe
+          allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad"
+          allowfullscreen="true"
+          id="game-element"
+          name="gameFrame"
+          sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups
          allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-same-origin allow-downloads"
-        src="/assets/game/index.html"
-        style="height: 100%; width: 100%"
-        title="Game"></iframe>
+          src="/assets/game/index.html"
+          style="height: 100%; width: 100%"
+          title="Game"></iframe>
+      </div>
+
     </div>
-  </div>
+  </ng-container>
 </div>
+
+
+<ng-template #social>
+  <app-social-icons></app-social-icons>
+</ng-template>
+<ng-template #tools>
+  <a href="/home"
+     class="m-r-10"
+     color="accent"
+     mat-icon-button>
+    <fa-icon [icon]="homeIcon"></fa-icon>
+  </a>
+  <a title="Connect to your wallet"
+     *ngIf="!connected"
+     class="m-r-10"
+     color="accent"
+     mat-icon-button
+     (click)="connectWallet()">
+    <fa-icon [icon]="walletIcon"></fa-icon>
+  </a>
+  <a title="Provide a user alias"
+     class="m-r-10"
+     color="accent"
+     mat-icon-button
+     (click)="openDialog()">
+    <fa-icon [icon]="editIcon"></fa-icon>
+  </a>
+</ng-template>
+<ng-template #info>
+  <div fxLayout class="justify-content-center font-big pb-2"
+       [ngSwitch]="((connectedWallet$ | async)?.length ?? 0) > 0">
+        <span *ngSwitchCase="true" class="font-emphasis">
+          <ng-container *ngIf="alias$ | async as alias">Registered User: {{alias}}</ng-container>
+          <br />
+          Wallet Address: {{connectedWallet$ | async}}
+          <br />
+          Highscore: {{highscore$ | async}}
+        </span>
+    <span *ngSwitchDefault>
+          No Wallet Connected.
+        </span>
+  </div>
+</ng-template>

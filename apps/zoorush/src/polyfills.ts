@@ -17,6 +17,22 @@
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
+(window as any).global = window;
+import { Buffer } from 'buffer';
+/***************************************************************************************************
+ * APPLICATION IMPORTS
+ */
+import 'core-js';
+/***************************************************************************************************
+ * Zone JS is required by default for Angular itself.
+ */
+import 'zone.js'; // Included with Angular CLI.
+global.Buffer = Buffer;
+global.process = {
+  env: { DEBUG: undefined },
+  version: '',
+  nextTick: require('next-tick'),
+} as any;
 
 /**
  * Web Animations `@angular/platform-browser/animations`
@@ -48,12 +64,3 @@
  *  (window as any).__Zone_enable_cross_context_check = true;
  *
  */
-
-/***************************************************************************************************
- * APPLICATION IMPORTS
- */
-import "core-js";
-/***************************************************************************************************
- * Zone JS is required by default for Angular itself.
- */
-import "zone.js"; // Included with Angular CLI.

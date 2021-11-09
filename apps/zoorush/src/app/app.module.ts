@@ -5,16 +5,25 @@ import {
 } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire/compat';
 import {
-  AngularFireAnalyticsModule,
-  APP_NAME,
-  APP_VERSION,
-  COLLECTION_ENABLED,
-  DEBUG_MODE as ANALYTICS_DEBUG_MODE,
+  initializeAnalytics,
+  provideAnalytics,
   ScreenTrackingService,
   UserTrackingService,
-} from '@angular/fire/compat/analytics';
+} from '@angular/fire/analytics';
+import {
+  FirebaseApp,
+  getApp,
+  initializeApp,
+  provideFirebaseApp,
+} from '@angular/fire/app';
+import {
+  initializeAppCheck,
+  provideAppCheck,
+  ReCaptchaV3Provider,
+} from '@angular/fire/app-check';
+import { initializeAuth, provideAuth } from '@angular/fire/auth';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -35,6 +44,11 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layouts/layout.module';
 import { SharedModule } from './shared/shared.module';
 
+if (!environment.production) {
+  // @ts-ignore
+  self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+}
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -50,8 +64,16 @@ import { SharedModule } from './shared/shared.module';
     MatDividerModule,
     AppRoutingModule,
     FontAwesomeModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => initializeAuth(getApp())),
+    provideAnalytics(() => initializeAnalytics(getApp())),
+    provideAppCheck(() =>
+      initializeAppCheck(getApp(), {
+        provider: new ReCaptchaV3Provider(environment.firebase.recaptaSiteKey),
+        isTokenAutoRefreshEnabled: true,
+      })
+    ),
+    provideDatabase(() => getDatabase(getApp())),
     CommonModule,
     MatDialogModule,
   ],
@@ -59,10 +81,6 @@ import { SharedModule } from './shared/shared.module';
   providers: [
     UserTrackingService,
     ScreenTrackingService,
-    { provide: ANALYTICS_DEBUG_MODE, useValue: true },
-    { provide: COLLECTION_ENABLED, useValue: true },
-    { provide: APP_VERSION, useValue: '0.0.0' },
-    { provide: APP_NAME, useValue: 'Angular' },
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy,
@@ -71,7 +89,7 @@ import { SharedModule } from './shared/shared.module';
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(private library: FaIconLibrary) {
+  constructor(private library: FaIconLibrary, app: FirebaseApp) {
     library.addIcons(faTwitter, faDiscord);
   }
 }
