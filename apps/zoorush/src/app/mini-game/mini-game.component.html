@@ -6,7 +6,7 @@
 
       <div class="justify-content-between top-container pb-1" fxLayout="row wrap">
         <h1 fxFlex="60" class="m-0 mb-n4 text-left text-md-center">Mini Game
-         <a mat-icon-button class="top-right" (click)="toggleDetails()">
+         <a mat-icon-button class="top-right" [attr.show-details]="showDetails" (click)="toggleDetails()">
             <fa-icon [icon]="showDetails ? minimiseIcon : maximiseIcon"></fa-icon>
           </a>
         </h1>

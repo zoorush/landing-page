@@ -44,9 +44,14 @@
   color: $primary;
 }
 
-.top-right {
+[show-details="true"].top-right {
   right: 0;
   top: -0.5rem;
+}
+
+[show-details="false"].top-right {
+  right: 0;
+  top: -0.25rem;
 }
 
 .details-bar {

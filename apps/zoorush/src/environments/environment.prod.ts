@@ -9,5 +9,7 @@ export const environment = {
     messagingSenderId: '1093738086768',
     appId: '1:1093738086768:web:f09f1ca8f980899911cfb5',
     measurementId: 'G-2G1LE218V7',
+    recaptaSiteKey: '6LdDISMdAAAAADQLO7ySo5ODJAM1VLhyfRsCTXxd',
+    recaptaSiteServerKey: '6LdDISMdAAAAAE8FCFbvlC3sT3LZVhfggurLBXW7',
   },
 };
