@@ -3,6 +3,12 @@
     <app-hero></app-hero>
 
     <app-divider></app-divider>
+    <app-section [id]="'promo'" class="my-3">
+      <app-fade-in direction="none">
+        <app-video></app-video>
+      </app-fade-in>
+    </app-section>
+    <app-divider></app-divider>
     <app-section [id]="'big-art'" class="my-3">
       <app-fade-in direction="up">
         <div class="justify-content-center" fxLayout="row wrap">
@@ -35,7 +41,7 @@
       <button class="col-8 my-3 p-4" color="primary" mat-flat-button>
         <span style="font-size: 2rem"
         >MINT</span> <br />
-          <span style="font-size: 1rem"
+        <span style="font-size: 1rem"
         >Coming Soon!</span>
       </button>
     </app-fade-in>

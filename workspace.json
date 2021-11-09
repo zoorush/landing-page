@@ -30,6 +30,7 @@
               "apps/zoorush/src/assets"
             ],
             "styles": [
+              "./node_modules/@videogular/ngx-videogular/fonts/videogular.css",
               "apps/zoorush/src/assets/styles/style.scss",
               "apps/zoorush/src/styles.scss"
             ],
@@ -111,8 +112,16 @@
               "apps/zoorush/src/assets"
             ],
             "styles": [
+              "./node_modules/@videogular/ngx-videogular/fonts/videogular.css",
+              "apps/zoorush/src/assets/styles/style.scss",
               "apps/zoorush/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules",
+                "apps/zoorush/src/assets"
+              ]
+            },
             "scripts": []
           }
         },
