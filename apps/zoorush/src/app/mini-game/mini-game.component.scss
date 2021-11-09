@@ -43,3 +43,15 @@
 .stylised-text {
   color: $primary;
 }
+
+.top-right {
+  right: 0;
+  top: -0.5rem;
+}
+
+.details-bar {
+  min-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}

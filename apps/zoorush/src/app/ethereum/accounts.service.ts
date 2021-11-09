@@ -82,7 +82,9 @@ export class AccountsService {
               (this.web3?.currentProvider as any).request({
                 method: 'eth_accounts',
               }) as Promise<string[]>
-            ).pipe(map((accounts) => accounts.map((acc) => acc.toLowerCase())));
+            ).pipe(
+              map((accounts) => accounts.map((acc) => acc.toLowerCase()))
+            );
           } else {
             return throwError(new Error('No Accounts Returned.'));
           }
@@ -103,7 +105,7 @@ export class AccountsService {
           map((accounts: string[]) => accounts[0]),
           tap(
             (account: string) =>
-              this.web3 && (this.web3.eth.defaultAccount = account)
+              this.web3 && (this.web3.eth.defaultAccount = account.toLowerCase())
           ),
           catchError((err: Error) => of(err))
         );
@@ -115,11 +117,6 @@ export class AccountsService {
 
   handleAccountChanges =
     (provider: any, cb: AccountChangedCallback) => (accounts: string[]) => {
-      console.log(accounts);
-      if (accounts.length === 0) {
-        // MetaMask is locked or the user has not connected any accounts
-        console.log('Please connect to MetaMask.');
-      }
       cb(provider, accounts?.map((acc) => acc.toLowerCase()));
     };
 

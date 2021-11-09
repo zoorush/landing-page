@@ -1,14 +1,20 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { AfterViewInit, ChangeDetectorRef, Component } from "@angular/core";
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { get, getDatabase, onValue, ref, set } from '@angular/fire/database';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DataSnapshot } from '@firebase/database';
-import { faEdit, faHome, faWallet } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEdit,
+  faHome,
+  faPlusCircle,
+  faWallet,
+  faWindowMaximize,
+  faWindowMinimize
+} from "@fortawesome/free-solid-svg-icons";
 import {
   BehaviorSubject,
   combineLatest,
-  from,
   fromEvent,
   Observable,
   of,
@@ -19,6 +25,7 @@ import {
   filter,
   map,
   mergeMap,
+  share,
   switchAll,
   switchMapTo,
 } from 'rxjs/operators';
@@ -34,11 +41,17 @@ const miniGameWalletAlias = 'zoo-rush-mini-game::wallet-alias';
   templateUrl: './mini-game.component.html',
   styleUrls: ['./mini-game.component.scss'],
 })
-export class MiniGameComponent extends AbstractNavbarComponent implements AfterViewInit {
+export class MiniGameComponent
+  extends AbstractNavbarComponent
+  implements AfterViewInit
+{
   alias$: BehaviorSubject<string>;
   homeIcon = faHome;
   walletIcon = faWallet;
+  minimiseIcon = faWindowMinimize;
+  maximiseIcon = faPlusCircle;
   editIcon = faEdit;
+  showDetails = true;
   connected: boolean = false;
   db = getDatabase();
   _connectedWallet$: BehaviorSubject<Observable<string>>;
@@ -71,7 +84,7 @@ export class MiniGameComponent extends AbstractNavbarComponent implements AfterV
 
     this.highscore$ = this.connectedWallet$.pipe(
       mergeMap((wallet: string) =>
-        this.onData(wallet, (h: string) => this._highscore.next(h))
+        this.onData(wallet, (h: string | null) => h && this._highscore.next(h))
       ),
       switchMapTo(this._highscore)
     );
@@ -101,24 +114,38 @@ export class MiniGameComponent extends AbstractNavbarComponent implements AfterV
       this.accounts
         .currentAccount({
           onAccountChanges: async (_, accounts) => {
+            console.log(accounts);
+            if (accounts.length === 0) {
+              // MetaMask is locked or the user has not connected any accounts
+              console.log('Please connect to MetaMask.');
+              this._connectedWallet$.next(of(''));
+            }
             if (accounts.length > 0) {
               const data = await this.getData(accounts[0].toLowerCase());
-              this.setAlias(data.alias);
-              this._highscore.next(data.highscore);
+              if (data?.highscore) {
+                this.setAlias(data.alias ?? '');
+                this._highscore.next(data.highscore);
+              }
             }
           },
         })
-        .pipe(map((acc) => (acc instanceof Error ? '' : acc)))
+        .pipe(
+          map((acc) => (acc instanceof Error ? '' : acc.toLowerCase())),
+          share()
+        )
     );
   }
 
   async writeData(highscore: string, wallet: string) {
-    const dataBasehighscore = (await this.getData(wallet));
+    const dataBasehighscore = await this.getData(wallet);
     console.log(highscore, dataBasehighscore);
-    if (Number(dataBasehighscore.highscore) < Number(highscore)) {
+    if (Number(dataBasehighscore?.highscore ?? 0) < Number(highscore)) {
       console.log('Write Success');
 
-      const newAlias = this.getAlias().length > 0 ? this.getAlias() : dataBasehighscore.alias;
+      const newAlias =
+        this.getAlias().length > 0
+          ? this.getAlias()
+          : dataBasehighscore?.alias ?? '';
       this.setAlias(newAlias);
 
       await set(ref(this.db, 'miniGame/' + wallet), {
@@ -130,7 +157,7 @@ export class MiniGameComponent extends AbstractNavbarComponent implements AfterV
 
   async onData(
     wallet: string,
-    cb: (highscore: string) => void
+    cb: (highscore: string | null) => void
   ): Promise<() => void> {
     return onValue(
       ref(this.db, 'miniGame/' + wallet + '/highscore'),
@@ -138,7 +165,9 @@ export class MiniGameComponent extends AbstractNavbarComponent implements AfterV
     );
   }
 
-  async getData(wallet: string): Promise<{ alias: string; highscore: string }> {
+  async getData(
+    wallet: string
+  ): Promise<{ alias: string; highscore: string } | null> {
     return (await get(ref(this.db, 'miniGame/' + wallet))).val();
   }
 
@@ -146,7 +175,7 @@ export class MiniGameComponent extends AbstractNavbarComponent implements AfterV
     const dialogRef = this.dialog.open(MiniGameAliasDialogComponent, {
       data: {
         alias: this.getAlias(),
-        wallet: this.connectedWallet$
+        wallet: this.connectedWallet$,
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
@@ -164,5 +193,9 @@ export class MiniGameComponent extends AbstractNavbarComponent implements AfterV
 
   ngAfterViewInit(): void {
     this.connectWallet();
+  }
+
+  toggleDetails() {
+    this.showDetails = !this.showDetails;
   }
 }

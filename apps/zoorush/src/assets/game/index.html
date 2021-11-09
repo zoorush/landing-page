@@ -95,7 +95,7 @@
   // Function which receives a message from Unity
   function receiveMessageFromUnity(message) {
     const parsedMessage = JSON.parse(message ?? "{}");
-    if ((parsedMessage.highscore ?? 0) >= 0) {
+    if (Number(parsedMessage.highscore ?? 0) >= 0) {
       window.parent.postMessage({
         type: "game-highscore",
         ...parsedMessage
