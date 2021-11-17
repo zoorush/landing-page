@@ -7,9 +7,8 @@ import { DataSnapshot } from '@firebase/database';
 import {
   faEdit,
   faHome,
-  faPlusCircle,
+  faPlusCircle, faTrophy,
   faWallet,
-  faWindowMaximize,
   faWindowMinimize
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -31,8 +30,9 @@ import {
 } from 'rxjs/operators';
 import { AccountsService } from '../ethereum/accounts.service';
 import { AbstractNavbarComponent } from '../layouts/abstract-navbar.component';
-import { MenuItems } from '../shared/services/menu-items/menu-items';
+import { Menu, MenuItems } from '../shared/services/menu-items/menu-items';
 import { MiniGameAliasDialogComponent } from './alias-dialog/alias.dialog.component';
+import { LeaderboardComponent } from "./leaderboard/leaderboard.component";
 
 const miniGameWalletAlias = 'zoo-rush-mini-game::wallet-alias';
 
@@ -46,11 +46,14 @@ export class MiniGameComponent
   implements AfterViewInit
 {
   alias$: BehaviorSubject<string>;
-  homeIcon = faHome;
-  walletIcon = faWallet;
-  minimiseIcon = faWindowMinimize;
-  maximiseIcon = faPlusCircle;
-  editIcon = faEdit;
+  icons = {
+    home: faHome,
+    wallet: faWallet,
+    minimise: faWindowMinimize,
+    maximise: faPlusCircle,
+    edit: faEdit,
+    trophy: faTrophy,
+  };
   showDetails = true;
   connected: boolean = false;
   db = getDatabase();
@@ -171,19 +174,23 @@ export class MiniGameComponent
     return (await get(ref(this.db, 'miniGame/' + wallet))).val();
   }
 
-  override openDialog() {
-    const dialogRef = this.dialog.open(MiniGameAliasDialogComponent, {
-      data: {
-        alias: this.getAlias(),
-        wallet: this.connectedWallet$,
-      },
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      if (result) {
-        this.setAlias(result);
-      }
-    });
+  override openDialog(menuItem?: Menu) {
+    if (menuItem && menuItem.state === 'leaderboard') {
+      const dialogRef = this.dialog.open(LeaderboardComponent);
+    } else {
+      const dialogRef = this.dialog.open(MiniGameAliasDialogComponent, {
+        data: {
+          alias: this.getAlias(),
+          wallet: this.connectedWallet$,
+        },
+      });
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log('The dialog was closed');
+        if (result) {
+          this.setAlias(result);
+        }
+      });
+    }
   }
 
   setAlias(alias: string) {

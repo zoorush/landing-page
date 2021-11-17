@@ -31,6 +31,9 @@
             ],
             "styles": [
               "./node_modules/@videogular/ngx-videogular/fonts/videogular.css",
+          "./node_modules/@ag-grid-community/core/dist/styles/ag-grid.css",
+          "./node_modules/@ag-grid-community/core/dist/styles/ag-theme-balham-dark.css",
+          "./node_modules/@ag-grid-community/core/dist/styles/ag-theme-material.css",
               "apps/zoorush/src/assets/styles/style.scss",
               "apps/zoorush/src/styles.scss"
             ],

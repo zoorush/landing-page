@@ -1,0 +1,9 @@
+<div class="grid-wrapper">
+  <h3 >Top Players</h3>
+  <ag-grid-angular
+    class="ag-grid-container ag-theme-balham-dark"
+    [rowData]="rows$ | async"
+    [gridOptions]="gridOptions"
+    [columnDefs]="columnDefs">
+  </ag-grid-angular>
+</div>

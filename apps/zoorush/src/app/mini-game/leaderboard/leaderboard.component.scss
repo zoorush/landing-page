@@ -1,0 +1,11 @@
+.grid-wrapper {
+  height: 60vh;
+  padding: .0625rem;
+  width: 60vw;
+}
+
+.ag-grid-container {
+  height: calc(100% - 42px);
+  padding: .0625rem;
+  width: 100%;
+}
