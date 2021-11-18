@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EthereumModule } from '../ethereum/ethereum.module';
 import { SharedModule } from '../shared/shared.module';
 import { MiniGameAliasDialogComponent } from "./alias-dialog/alias.dialog.component";
+import { LeaderboardModule } from "./leaderboard/leaderboard.module";
 import { MiniGameRoutingModule } from './mini-game-routing.module';
 import { MiniGameComponent } from './mini-game.component';
 
@@ -32,6 +33,7 @@ import { MiniGameComponent } from './mini-game.component';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
+    LeaderboardModule,
   ],
 })
 export class MiniGameModule {}

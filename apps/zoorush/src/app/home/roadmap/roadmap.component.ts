@@ -31,7 +31,7 @@ export class RoadmapComponent {
       lines: [
         { text: `Launch: Early visitors are let into the Zoo to walk around!` },
         {
-          text: `->Mini-game drop: Mini MVP drop by ZooRush development engineers.
+          text: `Mini-game drop: Mini MVP drop by ZooRush development engineers.
           ETH and NFT prizes for winners and lots of fun for all Zoo visitors!`,
         },
         {
@@ -67,7 +67,7 @@ export class RoadmapComponent {
           Developers share early game designs and mechanics incorporating feedback from Zoo members`,
         },
         {
-          text: `Charity:5% Sales go to charitable organization (Discord voting)`,
+          text: `Charity: 5% Sales go to charitable organization (Discord voting)`,
         },
       ],
     },
