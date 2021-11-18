@@ -1,9 +1,9 @@
-import { ColDef, GridOptions, ValueGetterParams } from "@ag-grid-community/all-modules";
+import { ColDef, GridOptions } from '@ag-grid-community/all-modules';
 import { Component, OnDestroy } from '@angular/core';
 import { Database, onValue, ref } from '@angular/fire/database';
 import { DataSnapshot } from '@firebase/database';
-import { BehaviorSubject, Observable, Subscription } from "rxjs";
-import { map } from "rxjs/operators";
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 type Data = {
   rank: number;
@@ -43,10 +43,10 @@ export class LeaderboardComponent implements OnDestroy {
   rows$: Observable<Data[]> = this._rowData$.pipe(
     map((value: Omit<Data, 'rank'>[]) =>
       value.sort((a, b) => {
-        if (b.highscore > a.highscore) {
+        if (Number(b.highscore) > Number(a.highscore)) {
           return 1;
         }
-        if (b.highscore < a.highscore) {
+        if (Number(b.highscore) < Number(a.highscore)) {
           return -1;
         }
         return 0;
